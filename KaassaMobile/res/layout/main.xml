@@ -1,31 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-      
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" >
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
 
-        <requestFocus />
-    </EditText>
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Name :"/>
+            
+            <TextView
+	        android:id="@+id/HotelNameValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelNameValue"/>
+            
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:text="Search" />
+     <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelLocation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Location :"/>
+            
+            <TextView
+	        android:id="@+id/HotelLocationValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelLocationValue"/>
+            
+    </LinearLayout>
     
-	<TextView  
-	    android:layout_width="match_parent" 
-	    android:layout_height="wrap_content" 
-	   	android:id="@+id/jsonDisplay"
-	   	android:text="sample test" 
-	    />
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelContact"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Contact :"/>
+            
+            <TextView
+	        android:id="@+id/HotelContactValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelContactValue"/>
+            
+    </LinearLayout>
+    
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelServices"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Services :"/>
+            
+            <TextView
+	        android:id="@+id/HotelServicesValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelServicesValue"/>
+            
+    </LinearLayout>
+    
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelBilling"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Billing :"/>
+            
+            <TextView
+	        android:id="@+id/HotelBillingValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelBillingValue"/>
+            
+    </LinearLayout>
+    
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
+          
+            <TextView
+	        android:id="@+id/HotelStars"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textColor="#00FF00"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="Stars :"/>
+            
+            <TextView
+	        android:id="@+id/HotelStarsValue"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="Arial"
+	        android:textSize="20sp"
+	        android:textStyle="bold" 
+	        android:text="HotelStarsValue"/>
+            
+    </LinearLayout>    
+   
 
+      
 </LinearLayout>
-
