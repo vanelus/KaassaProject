@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HotelAdapter extends BaseAdapter {
@@ -95,9 +96,9 @@ public class HotelAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int index) {
+	public hotelRecord getItem(int index) {
 		// TODO Auto-generated method stub
-		return getItem(index);
+		return hotels.get(index);
 	}
 
 	@Override
@@ -106,12 +107,69 @@ public class HotelAdapter extends BaseAdapter {
 		return index;
 	}
 
+	public void setImageStar (int Nbstars, View view){
+
+		ImageView icon_star_1 = (ImageView)view.findViewById(R.id.icon_star_1);
+		ImageView icon_star_2 = (ImageView)view.findViewById(R.id.icon_star_2);
+		ImageView icon_star_3 = (ImageView)view.findViewById(R.id.icon_star_3);
+		ImageView icon_star_4 = (ImageView)view.findViewById(R.id.icon_star_4);
+		ImageView icon_star_5 = (ImageView)view.findViewById(R.id.icon_star_5);
+		
+		//set stars image related to the number of stars.example: 2 stars ** ; 3 stars ***
+		switch(Nbstars) {
+	    case 1:
+	    	icon_star_1.setImageResource(R.drawable.star_actif);
+	    	icon_star_2.setImageResource(R.drawable.star_inactif);
+	    	icon_star_3.setImageResource(R.drawable.star_inactif);
+	    	icon_star_4.setImageResource(R.drawable.star_inactif);
+	    	icon_star_5.setImageResource(R.drawable.star_inactif);
+			
+	        break;
+	    case 2:
+	    	icon_star_1.setImageResource(R.drawable.star_actif);
+	    	icon_star_2.setImageResource(R.drawable.star_actif);
+	    	icon_star_3.setImageResource(R.drawable.star_inactif);
+	    	icon_star_4.setImageResource(R.drawable.star_inactif);
+	    	icon_star_5.setImageResource(R.drawable.star_inactif);
+	        break;
+	    case 3:
+	    	icon_star_1.setImageResource(R.drawable.star_actif);
+	    	icon_star_2.setImageResource(R.drawable.star_actif);
+	    	icon_star_3.setImageResource(R.drawable.star_actif);
+	    	icon_star_4.setImageResource(R.drawable.star_inactif);
+	    	icon_star_5.setImageResource(R.drawable.star_inactif);
+	        break;
+	    case 4:
+	    	icon_star_1.setImageResource(R.drawable.star_actif);
+	    	icon_star_2.setImageResource(R.drawable.star_actif);
+	    	icon_star_3.setImageResource(R.drawable.star_actif);
+	    	icon_star_4.setImageResource(R.drawable.star_actif);
+	    	icon_star_5.setImageResource(R.drawable.star_inactif);
+	        break;
+	    case 5:
+	    	icon_star_1.setImageResource(R.drawable.star_actif);
+	    	icon_star_2.setImageResource(R.drawable.star_actif);
+	    	icon_star_3.setImageResource(R.drawable.star_actif);
+	    	icon_star_4.setImageResource(R.drawable.star_actif);
+	    	icon_star_5.setImageResource(R.drawable.star_actif);
+	        break;
+	    default:
+	    	icon_star_1.setImageResource(R.drawable.star_inactif);
+	    	icon_star_2.setImageResource(R.drawable.star_inactif);
+	    	icon_star_3.setImageResource(R.drawable.star_inactif);
+	    	icon_star_4.setImageResource(R.drawable.star_inactif);
+	    	icon_star_5.setImageResource(R.drawable.star_inactif);
+	}
+		
+	}
+	
+	
 	@Override
 	public View getView(int index, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if (view == null) {
 			LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-			view = inflater.inflate(R.layout.hotellist, parent, false);
+			view = inflater.inflate(R.layout.hotellist3, parent, false);
 		}
 
 		hotelRecord hotel = hotels.get(index);
@@ -122,9 +180,9 @@ public class HotelAdapter extends BaseAdapter {
 		hotel_city.setText(hotel.getHotelCity());
 		TextView hotel_country = (TextView)view.findViewById(R.id.hotel_country);
 		hotel_country.setText(hotel.getHotelCountry());
-		TextView hotel_stars = (TextView)view.findViewById(R.id.hotel_stars);
-		hotel_stars.setText(hotel.getHotelStars());
 
+		//set stars image
+		setImageStar(Integer.parseInt(hotel.getHotelStars()),view);
 		return view;
 		
 		

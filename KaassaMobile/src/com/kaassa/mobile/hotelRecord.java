@@ -2,10 +2,10 @@ package com.kaassa.mobile;
 
 public class hotelRecord {
 	
-	private String HotelName;
-	private String HotelCity;
-	private String HotelCountry;
-	private String HotelStars;
+	public String HotelName;
+	public String HotelCity;
+	public String HotelCountry;
+	public String HotelStars;
 	
 	public hotelRecord(String HotelName, String HotelCity, String HotelCountry, String HotelStars ) {
 		this.HotelName = HotelName;
