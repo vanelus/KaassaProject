@@ -54,15 +54,12 @@ public class KaassaMobile extends Activity
     	    	 // Get Hotel "behind" the clicked item
     	    	    hotelRecord h =  (hotelRecord) arg0.getAdapter().getItem(position);
     	    	    
-    	    	    Log.i("SomeTag", "position: " + position);
-    	    	    // Log the fields to check if we got the info we want
-    	    	     Log.i("SomeTag", "Hotel name: " + h.HotelName);
-    	    	     Log.i("SomeTag", "Hotel city: " + h.HotelCity);
-    	    	     Log.i("SomeTag", "Hotel country: " + h.HotelCountry);
-    	    	    
+    	    	    Log.i("SomeTag", "position: " + position);    	    	    
     	    	    
     	    	    Intent intent = new Intent(KaassaMobile.this,HotelDetailActivity.class);
-    	    	    intent.putExtra("hotelselectedName",h.HotelName);
+    	    	      
+    	    	    intent.putExtra("com.kaassa.mobile.KaassaMobile.hotelRecord",h);
+    	    	    
     	    	    startActivity(intent);      
 
     	    	}

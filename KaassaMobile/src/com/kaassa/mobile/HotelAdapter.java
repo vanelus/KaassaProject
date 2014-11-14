@@ -69,6 +69,11 @@ public class HotelAdapter extends BaseAdapter {
 	        String HotelCity = null;
 	        String HotelCountry = null;
 	        String HotelStars = null;
+	        String HotelPhone_one = null;
+	        String HotelPhone_two = null;
+	        String HotelWebsite = null;
+	        String HotelPrice_min = null;
+
 	        
 	        for(int i=0;i<reader.length();i++){
 	     			try {
@@ -77,8 +82,17 @@ public class HotelAdapter extends BaseAdapter {
 	     		        HotelCity = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("name");
 	     		        HotelCountry = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_e_n");
 	     		        HotelStars = reader.getJSONObject(i).getString("stars");
-	     		        hotels.add(new hotelRecord(HotelName, HotelCity,HotelCountry,HotelStars));
-	     		       Log.i("Hotel name: ",hotels.get(i).getHotelName()+hotels.get(i).getHotelCity()+hotels.get(i).getHotelCountry()+hotels.get(i).getHotelStars());
+	     		        
+	     		        HotelPhone_one = reader.getJSONObject(i).getJSONObject("contact").getString("phone_one");
+	     		       
+	     		        HotelPhone_two = reader.getJSONObject(i).getJSONObject("contact").getString("phone_two");
+	     		      
+	     		        HotelWebsite = reader.getJSONObject(i).getJSONObject("contact").getString("web_site");
+	     		     
+	     		        HotelPrice_min = reader.getJSONObject(i).getJSONObject("billing").getString("price_min");
+	     		        
+	     		        hotels.add(new hotelRecord(HotelName,HotelCity,HotelCountry,HotelStars,HotelPhone_one,HotelPhone_two,HotelWebsite,HotelPrice_min));
+	     		       //Log.i("Hotel name: ",hotels.get(i).getHotelName()+hotels.get(i).getHotelCity()+hotels.get(i).getHotelCountry()+hotels.get(i).getHotelStars());
 	     				
 	     			} catch (JSONException e) {
 	     				// TODO Auto-generated catch block

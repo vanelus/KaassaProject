@@ -5,28 +5,109 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent">
             
     			
-	        <TextView android:id="@+id/hotel__detail_name"
+	        <TextView android:id="@+id/hotel__detail_name_label"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignParentTop="true"
 			android:layout_alignParentLeft="true"
-			android:textSize="20dp"
+			android:text="Name : "
+			/>
+	        <TextView android:id="@+id/hotel__detail_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/hotel__detail_name_label"
 			/>
       
-        	<TextView android:id="@+id/hotel_detail_city"
+        	<TextView android:id="@+id/hotel_detail_city_label"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_name"
-			android:textSize="20dp"
+			android:layout_below="@+id/hotel__detail_name_label"
+			android:text="City : "
+			 /> 
+			<TextView android:id="@+id/hotel_detail_city"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel__detail_name_label"
+			android:layout_toRightOf="@+id/hotel_detail_city_label"
 			 /> 
 			 
-
-		     <TextView android:id="@+id/hotel_detail_country"
+		     <TextView android:id="@+id/hotel_detail_country_label"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_city"
-			android:textSize="20dp"
+			android:layout_below="@+id/hotel_detail_city"
+			android:text="Country : "
 			 />
 		     
+		    <TextView android:id="@+id/hotel_detail_country"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_city"
+			android:layout_toRightOf="@+id/hotel_detail_country_label"
+			 />
+		     
+		      <TextView android:id="@+id/hotel_detail_stars_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_country_label"
+			android:text="Number Of Stars : "
+			 />
+		     <TextView android:id="@+id/hotel_detail_stars"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_country_label"
+			android:layout_toRightOf="@+id/hotel_detail_stars_label"
+			 />
+		     
+		    <TextView android:id="@+id/hotel_detail_phoneone_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_stars_label"
+			android:text="Phone 1 : "
+			 />
+		     <TextView android:id="@+id/hotel_detail_phoneone"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_stars_label"
+			android:layout_toRightOf="@+id/hotel_detail_phoneone_label"
+			 />
+		     
+		    <TextView android:id="@+id/hotel_detail_phonetwo_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_phoneone_label"
+			android:text="Phone 2 : "
+			 />
+		     <TextView android:id="@+id/hotel_detail_phonetwo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_phoneone_label"
+			android:layout_toRightOf="@+id/hotel_detail_phonetwo_label"
+			 />
+		     
+		    <TextView android:id="@+id/hotel_detail_website_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_phonetwo_label"
+			android:text="Web Site : "
+			 />
+		     <TextView android:id="@+id/hotel_detail_website"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_phonetwo_label"
+			android:layout_toRightOf="@+id/hotel_detail_website_label"
+			 />
+		     
+		    <TextView android:id="@+id/hotel_detail_pricemin_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_website_label"
+			android:text="Min Price (dollars) : "
+			 />
+		     <TextView android:id="@+id/hotel_detail_pricemin"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/hotel_detail_website_label"
+			android:layout_toRightOf="@+id/hotel_detail_pricemin_label"
+			 />
 
 </RelativeLayout>
