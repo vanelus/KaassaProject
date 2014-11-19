@@ -1,53 +1,77 @@
 package com.kaassa.mobile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class hotelRecord implements Parcelable{
+
+	
 	
 	public String HotelName;
-	public String HotelCity;
-	public String HotelCountry;
+	public String HotelLocationAddress;
+	public String HotelLocationCityName;
+	public String HotelLocationCityIs_top;
+	public String HotelLocationCountryName_fr;
+	public String HotelLocationCountryName_en;
+	public String HotelLocationPresentation_fr;
+	public String HotelLocationPresentation_en;
+	public String HotelContactPhone_one;
+	public String HotelContactPhone_two;
+	public String HotelContactWeb_site;
+	public String [] HotelServicesName_fr = null;
+	public String [] HotelServicesName_en =  null;
+	public String HotelBillingPrice_min;
+	public String HotelBillingFrequency;
 	public String HotelStars;
-	public String HotelPhone_one;
-	public String HotelPhone_two;
-	public String HotelWebsite;
-	public String HotelPrice_min;
 	
-	public hotelRecord(String HotelName, String HotelCity, String HotelCountry, String HotelStars,String HotelPhone_one, String HotelPhone_two, String HotelWebsite, String HotelPrice_min ) {
+
+	
+	public hotelRecord(String HotelName, String HotelLocationAddress, String HotelLocationCityName, String HotelLocationCountryName_fr, String HotelStars,String HotelContactPhone_one, String HotelContactPhone_two, String HotelContactWeb_site, String HotelBillingPrice_min,String [] HotelServicesName_en ) {
 		this.HotelName = HotelName;
-		this.HotelCity = HotelCity;
-		this.HotelCountry = HotelCountry;
+		this.HotelLocationAddress = HotelLocationAddress;
+		this.HotelLocationCityName = HotelLocationCityName;
+		this.HotelLocationCountryName_fr = HotelLocationCountryName_fr;
 		this.HotelStars = HotelStars;
-		this.HotelPhone_one = HotelPhone_one;
-		this.HotelPhone_two = HotelPhone_two;
-		this.HotelWebsite = HotelWebsite;
-		this.HotelPrice_min = HotelPrice_min;
+		this.HotelContactPhone_one = HotelContactPhone_one;
+		this.HotelContactPhone_two = HotelContactPhone_two;
+		this.HotelContactWeb_site = HotelContactWeb_site;
+		this.HotelBillingPrice_min = HotelBillingPrice_min;
+		this.HotelServicesName_en = HotelServicesName_en;
+		
 	}
 	
 	public String getHotelName() { return HotelName; }
 	public void setHotelName(String HotelName) { this.HotelName = HotelName; }
 	
-	public String getHotelCity() { return HotelCity; }
-	public void setHotelCity(String HotelCity) { this.HotelCity = HotelCity; }
+	public String getHotelLocationAddress() { return HotelLocationAddress; }
+	public void setHotelLocationAddress(String HotelLocationAddress) { this.HotelLocationAddress = HotelLocationAddress; }
 	
-	public String getHotelCountry() { return HotelCountry; }
-	public void setHotelCountry(String HotelCountry) { this.HotelCountry = HotelCountry; }
+	public String getHotelLocationCityName() { return HotelLocationCityName; }
+	public void setHotelLocationCityName(String HotelLocationCityName) { this.HotelLocationCityName = HotelLocationCityName; }
+	
+	public String getHotelLocationCountryName_fr() { return HotelLocationCountryName_fr; }
+	public void setHotelLocationCountryName_fr(String HotelLocationCountryName_fr) { this.HotelLocationCountryName_fr = HotelLocationCountryName_fr; }
 	
 	public String getHotelStars() { return HotelStars; }
 	public void setHotelStars(String HotelStars) { this.HotelStars = HotelStars; }
 	
-	public String getHotelPhone_one() { return HotelPhone_one; }
-	public void setHotelPhone_one(String HotelPhone_one) { this.HotelPhone_one = HotelPhone_one; }
+	public String getHotelContactPhone_one() { return HotelContactPhone_one; }
+	public void setHotelContactPhone_one(String HotelContactPhone_one) { this.HotelContactPhone_one = HotelContactPhone_one; }
 	
-	public String getHotelPhone_two() { return HotelPhone_two; }
-	public void setHotelPhone_two(String HotelPhone_two) { this.HotelPhone_two = HotelPhone_two; }
+	public String getHotelContactPhone_two() { return HotelContactPhone_two; }
+	public void setHotelContactPhone_two(String HotelContactPhone_two) { this.HotelContactPhone_two = HotelContactPhone_two; }
 	
-	public String getHotelWebsite() { return HotelWebsite; }
-	public void setHotelWebsite(String HotelWebsite) { this.HotelWebsite = HotelWebsite; }
+	public String getHotelContactWeb_site() { return HotelContactWeb_site; }
+	public void setHotelContactWeb_site(String HotelContactWeb_site) { this.HotelContactWeb_site = HotelContactWeb_site; }
 	
-	public String getHotelPrice_min() { return HotelPrice_min; }
-	public void setHotelPrice_min(String HotelPrice_min) { this.HotelPrice_min = HotelPrice_min; }
+	public String getHotelBillingPrice_min() { return HotelBillingPrice_min; }
+	public void setHotelBillingPrice_min(String HotelBillingPrice_min) { this.HotelBillingPrice_min = HotelBillingPrice_min; }
+	
+	public String [] getHotelServicesName_en() { return HotelServicesName_en; }
+	public void setHotelServicesName_en(String [] HotelServicesName_en) { this.HotelServicesName_en = HotelServicesName_en; }
 	
 	  @Override
 	  public int describeContents() {
@@ -59,13 +83,15 @@ public class hotelRecord implements Parcelable{
 	  public void writeToParcel(Parcel dest, int flags) {
 	    // On ajoute les objets dans l'ordre dans lequel on les a déclarés
 	    dest.writeString(HotelName);
-	    dest.writeString(HotelCity);
-	    dest.writeString(HotelCountry);
+	    dest.writeString(HotelLocationAddress);
+	    dest.writeString(HotelLocationCityName);
+	    dest.writeString(HotelLocationCountryName_fr);
 	    dest.writeString(HotelStars);
-	    dest.writeString(HotelPhone_one);
-	    dest.writeString(HotelPhone_two);
-	    dest.writeString(HotelWebsite);
-	    dest.writeString(HotelPrice_min);
+	    dest.writeString(HotelContactPhone_one);
+	    dest.writeString(HotelContactPhone_two);
+	    dest.writeString(HotelContactWeb_site);
+	    dest.writeString(HotelBillingPrice_min);
+	    dest.writeStringArray(HotelServicesName_en);
 
 	  }
 	  
@@ -83,13 +109,15 @@ public class hotelRecord implements Parcelable{
 
 		public hotelRecord(Parcel in) {
 		  HotelName = in.readString();
-		  HotelCity = in.readString();
-		  HotelCountry = in.readString();
+		  HotelLocationAddress = in.readString();
+		  HotelLocationCityName = in.readString();
+		  HotelLocationCountryName_fr = in.readString();
 		  HotelStars = in.readString();
-		  HotelPhone_one = in.readString();
-		  HotelPhone_two = in.readString();
-		  HotelWebsite = in.readString();
-		  HotelPrice_min = in.readString();
+		  HotelContactPhone_one = in.readString();
+		  HotelContactPhone_two = in.readString();
+		  HotelContactWeb_site = in.readString();
+		  HotelBillingPrice_min = in.readString();
+		  HotelServicesName_en= in.createStringArray();
 		  
 		}
 }

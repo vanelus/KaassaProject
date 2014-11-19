@@ -24,6 +24,7 @@ public class HotelAdapter extends BaseAdapter {
 	
 	private ArrayList<hotelRecord> hotels = new ArrayList<hotelRecord>();
 	
+	@SuppressWarnings("null")
 	public HotelAdapter(Context myContext) {
 			AssetManager mngr = myContext.getAssets();
 			
@@ -65,40 +66,60 @@ public class HotelAdapter extends BaseAdapter {
 			}
 	        
 	        // déclaration d'une liste d'hotel bis 
-	        String HotelName = null;
-	        String HotelCity = null;
-	        String HotelCountry = null;
-	        String HotelStars = null;
-	        String HotelPhone_one = null;
-	        String HotelPhone_two = null;
-	        String HotelWebsite = null;
-	        String HotelPrice_min = null;
-
+	    	String HotelName=null;
+	    	String HotelLocationAddress=null;
+	    	String HotelLocationCityName=null;
+	    	String HotelLocationCityIs_top=null;
+	    	String HotelLocationCountryName_fr=null;
+	    	String HotelLocationCountryName_en=null;
+	    	String HotelLocationPresentation_fr=null;
+	    	String HotelLocationPresentation_en=null;
+	    	String HotelContactPhone_one=null;
+	    	String HotelContactPhone_two=null;
+	    	String HotelContactWeb_site=null;
+	    	String HotelBillingPrice_min=null;
+	    	String HotelBillingFrequency=null;
+	    	String HotelStars=null;
+		     String [] HotelServicesName_fr = new String [21];
+		     String [] HotelServicesName_en = new String [21];
 	        
 	        for(int i=0;i<reader.length();i++){
 	     			try {
 	     		        HotelName = reader.getJSONObject(i).getString("name");
+	     		        HotelLocationAddress = reader.getJSONObject(i).getJSONObject("location").getString("address");
+	     		        HotelLocationCityName = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("name");
+	     		        HotelLocationCityIs_top = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("is_top");
+	     		        HotelLocationCountryName_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_f_r");
+	     		        HotelLocationCountryName_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_e_n");
+	     		        HotelLocationPresentation_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("presentation_f_r");
+	     		        HotelLocationPresentation_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("presentation_e_n");
+	     		        HotelContactPhone_one = reader.getJSONObject(i).getJSONObject("contact").getString("phone_one");
+	     		        HotelContactPhone_two = reader.getJSONObject(i).getJSONObject("contact").getString("phone_two");
+	     		        HotelContactWeb_site = reader.getJSONObject(i).getJSONObject("contact").getString("web_site");
 	     		        
-	     		        HotelCity = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("name");
-	     		        HotelCountry = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_e_n");
+	     		       JSONArray HotelServicesTb = reader.getJSONObject(i).getJSONArray("services");
+
+	     		       
+	     		       for(int j=0;j<HotelServicesTb.length();j++){
+	     		    	  HotelServicesName_fr [j] = HotelServicesTb.getJSONObject(j).getString("name_f_r");
+	     		    	 HotelServicesName_en [j] = HotelServicesTb.getJSONObject(j).getString("name_e_n");
+	     		    	 // HotelServicesName_fr.add(HotelServicesTb.getJSONObject(j).getString("name_f_r"));
+	     		    	  //HotelServicesName_en.add(HotelServicesTb.getJSONObject(j).getString("name_e_n"));
+
+	     		       }
+	     		     
+	     		        HotelBillingPrice_min = reader.getJSONObject(i).getJSONObject("billing").getString("price_min");
+	     		     	HotelBillingFrequency = reader.getJSONObject(i).getJSONObject("billing").getString("frequency");	     		        
 	     		        HotelStars = reader.getJSONObject(i).getString("stars");
 	     		        
-	     		        HotelPhone_one = reader.getJSONObject(i).getJSONObject("contact").getString("phone_one");
-	     		       
-	     		        HotelPhone_two = reader.getJSONObject(i).getJSONObject("contact").getString("phone_two");
-	     		      
-	     		        HotelWebsite = reader.getJSONObject(i).getJSONObject("contact").getString("web_site");
-	     		     
-	     		        HotelPrice_min = reader.getJSONObject(i).getJSONObject("billing").getString("price_min");
-	     		        
-	     		        hotels.add(new hotelRecord(HotelName,HotelCity,HotelCountry,HotelStars,HotelPhone_one,HotelPhone_two,HotelWebsite,HotelPrice_min));
-	     		       //Log.i("Hotel name: ",hotels.get(i).getHotelName()+hotels.get(i).getHotelCity()+hotels.get(i).getHotelCountry()+hotels.get(i).getHotelStars());
-	     				
+	     		        hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
+	     		        Log.i("Hotel parameters: ",HotelServicesTb.toString());
 	     			} catch (JSONException e) {
 	     				// TODO Auto-generated catch block
 	     				e.printStackTrace();
 	     			}
 	             }
+
 		    
 	    
 		}
@@ -191,9 +212,9 @@ public class HotelAdapter extends BaseAdapter {
 		TextView hotel_name = (TextView)view.findViewById(R.id.hotel_name);
 		hotel_name.setText(hotel.getHotelName());
 		TextView hotel_city = (TextView)view.findViewById(R.id.hotel_city);
-		hotel_city.setText(hotel.getHotelCity());
+		hotel_city.setText(hotel.getHotelLocationCityName());
 		TextView hotel_country = (TextView)view.findViewById(R.id.hotel_country);
-		hotel_country.setText(hotel.getHotelCountry());
+		hotel_country.setText(hotel.getHotelLocationCountryName_fr());
 
 		//set stars image
 		setImageStar(Integer.parseInt(hotel.getHotelStars()),view);

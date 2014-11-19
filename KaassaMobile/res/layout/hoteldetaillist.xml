@@ -1,113 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/hoteletaillist"
 android:layout_width="fill_parent"
-android:layout_height="fill_parent">
+android:layout_height="fill_parent"
+android:background="#FFFFFF"
+>
             
     			
-	        <TextView android:id="@+id/hotel__detail_name_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentTop="true"
-			android:layout_alignParentLeft="true"
-			android:text="Name : "
-			/>
+	<LinearLayout
+	    android:id="@+id/line1"
+	    android:background="#FFFFFF" 
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:padding="10dp"
+		android:layout_centerHorizontal="true"
+	    >
 	        <TextView android:id="@+id/hotel__detail_name"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_toRightOf="@+id/hotel__detail_name_label"
+			android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+			android:textStyle="bold"
+			android:textSize="15sp"
+			android:textColor="@android:color/black"
+			
+
 			/>
-      
-        	<TextView android:id="@+id/hotel_detail_city_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel__detail_name_label"
-			android:text="City : "
-			 /> 
-			<TextView android:id="@+id/hotel_detail_city"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel__detail_name_label"
-			android:layout_toRightOf="@+id/hotel_detail_city_label"
-			 /> 
-			 
-		     <TextView android:id="@+id/hotel_detail_country_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_city"
-			android:text="Country : "
+        	<ImageView
+	         android:id="@+id/icon_star_1"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+	         android:src="@drawable/star_inactif"
+	         />
+        	
+        	<ImageView
+	         android:id="@+id/icon_star_2"
+			 android:layout_width="20dp"
+			 android:layout_height="20dp"
+	         android:src="@drawable/star_inactif"
+	         />
+        	<ImageView
+	         android:id="@+id/icon_star_3"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+	         android:src="@drawable/star_inactif"
+	         />        	        	
+        	<ImageView
+	         android:id="@+id/icon_star_4"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+	         android:src="@drawable/star_inactif"
+	         />
+        	<ImageView
+	         android:id="@+id/icon_star_5"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+	         android:src="@drawable/star_inactif"
+	         /> 
+
+	 </LinearLayout>
+
+     <TextView android:id="@+id/hotel_detail_pricemin"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+	android:textStyle="bold"
+	android:textSize="15sp"
+	android:textColor="@android:color/black"
+	android:layout_below="@+id/line1"
+	android:padding="10dp"
+	android:layout_centerHorizontal="true"
 			 />
 		     
-		    <TextView android:id="@+id/hotel_detail_country"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_city"
-			android:layout_toRightOf="@+id/hotel_detail_country_label"
-			 />
-		     
-		      <TextView android:id="@+id/hotel_detail_stars_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_country_label"
-			android:text="Number Of Stars : "
-			 />
-		     <TextView android:id="@+id/hotel_detail_stars"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_country_label"
-			android:layout_toRightOf="@+id/hotel_detail_stars_label"
-			 />
-		     
-		    <TextView android:id="@+id/hotel_detail_phoneone_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_stars_label"
-			android:text="Phone 1 : "
-			 />
-		     <TextView android:id="@+id/hotel_detail_phoneone"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_stars_label"
-			android:layout_toRightOf="@+id/hotel_detail_phoneone_label"
-			 />
-		     
-		    <TextView android:id="@+id/hotel_detail_phonetwo_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_phoneone_label"
-			android:text="Phone 2 : "
-			 />
-		     <TextView android:id="@+id/hotel_detail_phonetwo"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_phoneone_label"
-			android:layout_toRightOf="@+id/hotel_detail_phonetwo_label"
-			 />
-		     
-		    <TextView android:id="@+id/hotel_detail_website_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_phonetwo_label"
-			android:text="Web Site : "
-			 />
+
+	<TextView android:id="@+id/hotel_detail_location"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+	android:textStyle="bold"
+	android:textSize="15sp"
+	android:textColor="@android:color/black"
+	android:padding="10dp"
+	android:layout_below="@+id/hotel_detail_pricemin"
+	android:layout_centerHorizontal="true"
+	 /> 
+	
+	<LinearLayout
+	android:id="@+id/line2"
+    android:background="#FFFFFF" 
+    android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@+id/hotel_detail_location"
+	android:padding="10dp"
+    >      
+   		 <ImageView
+         android:id="@+id/phone_icon"
+		 android:layout_width="20dp"
+		 android:layout_height="20dp"
+         android:src="@drawable/phone_icon"
+         android:layout_weight="1"
+         />
+	
+	     <TextView android:id="@+id/hotel_detail_phone"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:layout_weight="2"
+		 />
+	</LinearLayout>
+		<LinearLayout
+		android:id="@+id/line3"
+	    android:background="#FFFFFF" 
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/line2"
+		android:padding="10dp"
+	    >     
+
+		    <ImageView
+	         android:id="@+id/web_icon"
+			 android:layout_width="20dp"
+			 android:layout_height="20dp"
+	         android:src="@drawable/web_icon"
+	         android:layout_weight="1"
+	         />
 		     <TextView android:id="@+id/hotel_detail_website"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_phonetwo_label"
-			android:layout_toRightOf="@+id/hotel_detail_website_label"
+			android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+			android:textStyle="bold"
+			android:textSize="15sp"
+			android:textColor="@android:color/black"
+			android:layout_weight="2"
 			 />
-		     
-		    <TextView android:id="@+id/hotel_detail_pricemin_label"
+		</LinearLayout> 
+		    
+		    <TextView android:id="@+id/hotel_detail_services"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_website_label"
-			android:text="Min Price (dollars) : "
-			 />
-		     <TextView android:id="@+id/hotel_detail_pricemin"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/hotel_detail_website_label"
-			android:layout_toRightOf="@+id/hotel_detail_pricemin_label"
+			android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+			android:textStyle="bold"
+			android:textSize="15sp"
+			android:textColor="@android:color/black"
+			android:layout_weight="2"
+			android:layout_below="@+id/line3"
 			 />
 
 </RelativeLayout>
