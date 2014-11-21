@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KaassaMobile</string>
+
+    <string name="app_name">Hotel List</string>
     <string name="HotelDetailActivity_name">Hotel Form</string>
-    
-    
+    <string name="title_activity_main">Kaassa App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

@@ -6,9 +6,15 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:background="#FFFFFF"
 >
-            
-    			
-	<LinearLayout
+            		    
+	<LinearLayout 
+    android:background="#FFFFFF" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"   
+    android:orientation="vertical"
+	    >
+	    
+	    <LinearLayout
 	    android:id="@+id/line1"
 	    android:background="#FFFFFF" 
 	    android:layout_width="match_parent"
@@ -29,33 +35,33 @@ android:background="#FFFFFF"
 			/>
         	<ImageView
 	         android:id="@+id/icon_star_1"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         />
         	
         	<ImageView
 	         android:id="@+id/icon_star_2"
-			 android:layout_width="20dp"
-			 android:layout_height="20dp"
+			 android:layout_width="16dp"
+			 android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         />
         	<ImageView
 	         android:id="@+id/icon_star_3"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         />        	        	
         	<ImageView
 	         android:id="@+id/icon_star_4"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         />
         	<ImageView
 	         android:id="@+id/icon_star_5"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         /> 
 
@@ -96,8 +102,8 @@ android:background="#FFFFFF"
     >      
    		 <ImageView
          android:id="@+id/phone_icon"
-		 android:layout_width="20dp"
-		 android:layout_height="20dp"
+		 android:layout_width="16dp"
+		 android:layout_height="16dp"
          android:src="@drawable/phone_icon"
          android:layout_weight="1"
          />
@@ -123,8 +129,8 @@ android:background="#FFFFFF"
 
 		    <ImageView
 	         android:id="@+id/web_icon"
-			 android:layout_width="20dp"
-			 android:layout_height="20dp"
+			 android:layout_width="16dp"
+			 android:layout_height="16dp"
 	         android:src="@drawable/web_icon"
 	         android:layout_weight="1"
 	         />
@@ -149,5 +155,6 @@ android:background="#FFFFFF"
 			android:layout_weight="2"
 			android:layout_below="@+id/line3"
 			 />
-
+	    
+	</LinearLayout>
 </RelativeLayout>

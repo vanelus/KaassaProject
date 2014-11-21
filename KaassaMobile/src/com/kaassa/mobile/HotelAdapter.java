@@ -3,14 +3,12 @@ package com.kaassa.mobile;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HotelAdapter extends BaseAdapter {
-
-
 	
 	private ArrayList<hotelRecord> hotels = new ArrayList<hotelRecord>();
 	
-	@SuppressWarnings("null")
 	public HotelAdapter(Context myContext) {
 			AssetManager mngr = myContext.getAssets();
 			
@@ -80,8 +75,8 @@ public class HotelAdapter extends BaseAdapter {
 	    	String HotelBillingPrice_min=null;
 	    	String HotelBillingFrequency=null;
 	    	String HotelStars=null;
-		     String [] HotelServicesName_fr = new String [21];
-		     String [] HotelServicesName_en = new String [21];
+	    	ArrayList<String> HotelServicesName_fr = new ArrayList<String> () ;
+	    	ArrayList<String> HotelServicesName_en = new ArrayList<String> ();
 	        
 	        for(int i=0;i<reader.length();i++){
 	     			try {
@@ -101,10 +96,10 @@ public class HotelAdapter extends BaseAdapter {
 
 	     		       
 	     		       for(int j=0;j<HotelServicesTb.length();j++){
-	     		    	  HotelServicesName_fr [j] = HotelServicesTb.getJSONObject(j).getString("name_f_r");
-	     		    	 HotelServicesName_en [j] = HotelServicesTb.getJSONObject(j).getString("name_e_n");
-	     		    	 // HotelServicesName_fr.add(HotelServicesTb.getJSONObject(j).getString("name_f_r"));
-	     		    	  //HotelServicesName_en.add(HotelServicesTb.getJSONObject(j).getString("name_e_n"));
+	     		    	 // HotelServicesName_fr [j] = HotelServicesTb.getJSONObject(j).getString("name_f_r");
+	     		    	// HotelServicesName_en [j] = HotelServicesTb.getJSONObject(j).getString("name_e_n");
+	     		    	  HotelServicesName_fr.add(HotelServicesTb.getJSONObject(j).getString("name_f_r"));
+	     		    	  HotelServicesName_en.add(HotelServicesTb.getJSONObject(j).getString("name_e_n"));
 
 	     		       }
 	     		     
@@ -113,7 +108,7 @@ public class HotelAdapter extends BaseAdapter {
 	     		        HotelStars = reader.getJSONObject(i).getString("stars");
 	     		        
 	     		        hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
-	     		        Log.i("Hotel parameters: ",HotelServicesTb.toString());
+	     		     //   Log.i("Hotel parameters: ",HotelServicesTb.toString());
 	     			} catch (JSONException e) {
 	     				// TODO Auto-generated catch block
 	     				e.printStackTrace();

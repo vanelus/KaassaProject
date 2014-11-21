@@ -21,15 +21,15 @@ public class hotelRecord implements Parcelable{
 	public String HotelContactPhone_one;
 	public String HotelContactPhone_two;
 	public String HotelContactWeb_site;
-	public String [] HotelServicesName_fr = null;
-	public String [] HotelServicesName_en =  null;
+	public ArrayList<String> HotelServicesName_fr = null;
+	public ArrayList<String> HotelServicesName_en = null;
 	public String HotelBillingPrice_min;
 	public String HotelBillingFrequency;
 	public String HotelStars;
 	
 
 	
-	public hotelRecord(String HotelName, String HotelLocationAddress, String HotelLocationCityName, String HotelLocationCountryName_fr, String HotelStars,String HotelContactPhone_one, String HotelContactPhone_two, String HotelContactWeb_site, String HotelBillingPrice_min,String [] HotelServicesName_en ) {
+	public hotelRecord(String HotelName, String HotelLocationAddress, String HotelLocationCityName, String HotelLocationCountryName_fr, String HotelStars,String HotelContactPhone_one, String HotelContactPhone_two, String HotelContactWeb_site, String HotelBillingPrice_min,ArrayList<String> HotelServicesName_en ) {
 		this.HotelName = HotelName;
 		this.HotelLocationAddress = HotelLocationAddress;
 		this.HotelLocationCityName = HotelLocationCityName;
@@ -70,8 +70,8 @@ public class hotelRecord implements Parcelable{
 	public String getHotelBillingPrice_min() { return HotelBillingPrice_min; }
 	public void setHotelBillingPrice_min(String HotelBillingPrice_min) { this.HotelBillingPrice_min = HotelBillingPrice_min; }
 	
-	public String [] getHotelServicesName_en() { return HotelServicesName_en; }
-	public void setHotelServicesName_en(String [] HotelServicesName_en) { this.HotelServicesName_en = HotelServicesName_en; }
+	public ArrayList<String> getHotelServicesName_en() { return HotelServicesName_en; }
+	public void setHotelServicesName_en(ArrayList<String> HotelServicesName_en) { this.HotelServicesName_en = HotelServicesName_en; }
 	
 	  @Override
 	  public int describeContents() {
@@ -91,7 +91,7 @@ public class hotelRecord implements Parcelable{
 	    dest.writeString(HotelContactPhone_two);
 	    dest.writeString(HotelContactWeb_site);
 	    dest.writeString(HotelBillingPrice_min);
-	    dest.writeStringArray(HotelServicesName_en);
+	    dest.writeList(HotelServicesName_en);
 
 	  }
 	  
@@ -117,7 +117,8 @@ public class hotelRecord implements Parcelable{
 		  HotelContactPhone_two = in.readString();
 		  HotelContactWeb_site = in.readString();
 		  HotelBillingPrice_min = in.readString();
-		  HotelServicesName_en= in.createStringArray();
+		  HotelServicesName_en = new ArrayList<String>();
+		  in.readList(HotelServicesName_en,  String.class.getClassLoader());
 		  
 		}
 }

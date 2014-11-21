@@ -9,51 +9,52 @@ android:layout_height="fill_parent">
 			android:layout_height="wrap_content"
 			android:layout_alignParentTop="true"
 			android:layout_alignParentLeft="true"
-			android:textSize="20dp"
+			android:textStyle="bold"
+			android:textSize="18sp"
+			android:textColor="@android:color/black"
 			/>
 
         	<TextView android:id="@+id/separateur_stars_name"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="  "
-			android:textSize="20dp"
 			android:layout_toRightOf="@+id/hotel_name"
 			 />
 
         	
         	<ImageView
 	         android:id="@+id/icon_star_1"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         android:layout_toRightOf="@+id/separateur_stars_name"
 	         />
         	
         	<ImageView
 	         android:id="@+id/icon_star_2"
-			 android:layout_width="20dp"
-			 android:layout_height="20dp"
+			 android:layout_width="16dp"
+			 android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         android:layout_toRightOf="@+id/icon_star_1"
 	         />
         	<ImageView
 	         android:id="@+id/icon_star_3"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         android:layout_toRightOf="@+id/icon_star_2"
 	         />        	        	
         	<ImageView
 	         android:id="@+id/icon_star_4"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         android:layout_toRightOf="@+id/icon_star_3"
 	         />
         	<ImageView
 	         android:id="@+id/icon_star_5"
-			android:layout_width="20dp"
-			android:layout_height="20dp"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
 	         android:src="@drawable/star_inactif"
 	         android:layout_toRightOf="@+id/icon_star_4"
 	         />        	
@@ -63,6 +64,8 @@ android:layout_height="fill_parent">
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/hotel_name"
 			android:layout_alignLeft="@+id/hotel_name"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
 			 /> 
 			 
         	<TextView android:id="@+id/separateur_city_country"
@@ -71,12 +74,17 @@ android:layout_height="fill_parent">
 			android:text=" - "
 			android:layout_below="@+id/hotel_name"
 			android:layout_toRightOf="@+id/hotel_city"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
 			 />
+        	
 		     <TextView android:id="@+id/hotel_country"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/hotel_name"
 			android:layout_toRightOf="@+id/separateur_city_country"
+			android:textSize="12sp"
+			android:textColor="@android:color/black"
 			 />
 		     
 

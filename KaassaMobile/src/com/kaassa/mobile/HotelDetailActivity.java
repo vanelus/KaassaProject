@@ -38,10 +38,10 @@ public class HotelDetailActivity extends Activity {
         
         // Get the "hoteldetaillist" services layout
         TextView hotel_detail_services = (TextView)findViewById(R.id.hotel_detail_services);
-        String Services =  null;
-        for (int i1=0 ; i1< h1.HotelServicesName_en.length ; i1++ )
-        	Services = Services + h1.HotelServicesName_en[i1]+";";
-        hotel_detail_services.setText(Services);
+        String Services =  "";
+//        for (int i1=0 ; i1< h1.HotelServicesName_en.size() ; i1++ )
+//        	Services = Services + h1.HotelServicesName_en.+";";
+        hotel_detail_services.setText(h1.HotelServicesName_en.toString());
         
         final TextView hotel_detail_website = (TextView)findViewById(R.id.hotel_detail_website);
         hotel_detail_website.setText(h1.HotelContactWeb_site);
