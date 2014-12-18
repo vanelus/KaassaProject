@@ -6,72 +6,70 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/white"
     tools:context="com.kaassa.mobile.MainActivity" >
 
-    
-        <LinearLayout
-        android:id="@+id/pwd_block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/uname_block" 
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-         >
-
-         <TextView
-        android:id="@+id/pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:layout_gravity="center_vertical"
-        android:text="@+string/Password" 
-
-        />
             
-            <EditText
+     <EditText
         android:id="@+id/fld_pwd"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:inputType="textEmailAddress"
+        android:textColor="@android:color/black"
         android:paddingLeft="5dp"
-        android:textSize="13sp"
+        android:textSize="20sp"
         android:layout_gravity="center_vertical"/>
             
-	</LinearLayout>
 	<RadioGroup
 	    android:id="@+id/radio_group1"
-	    android:layout_width="wrap_content"
+	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	     android:layout_below="@+id/pwd_block"
+	    android:layout_below="@+id/fld_pwd"
+	    android:layout_marginTop="15dp"
 	    android:orientation="horizontal">
 	    <RadioButton android:id="@+id/radio_Hotel"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Hotels"
+	        android:textColor="@android:color/black"
+	        android:textSize="13sp"
 	        android:onClick="onRadioButtonClicked"/>
 	    <RadioButton android:id="@+id/radio_school"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Schools"
+	        android:textColor="@android:color/black"	
+	        android:textSize="13sp"
 	        android:onClick="onRadioButtonClicked"/>
 	    <RadioButton android:id="@+id/radio_enterprise"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="Enterprises"
+	        android:textSize="13sp"
+	        android:textColor="@android:color/black"
 	        android:onClick="onRadioButtonClicked"/>
+   	    <RadioButton android:id="@+id/radio_executive"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="Executives"
+	       android:textSize="13sp"
+	       android:textColor="@android:color/black"
+	       android:onClick="onRadioButtonClicked"/>
 	</RadioGroup>
 
      <Button
 	    android:id="@+id/btn_login"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
 		android:text="Rechercher"
-        android:layout_marginTop="15dp"
-        android:textSize="13sp"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="#47a447"
+        android:onClick="GetSearchResult"
         android:layout_below="@+id/radio_group1"/>
 
 </RelativeLayout>

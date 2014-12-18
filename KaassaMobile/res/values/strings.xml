@@ -5,6 +5,9 @@
     <string name="HotelDetailActivity_name">Hotel Form</string>
     <string name="title_activity_main">Kaassa App</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="action_settings">About</string>
+    <string name="action_leaveusmessage">Leave us a message</string>
+    <string name="aboutkaassa_value">Kaassa - About\n\nSurveillance in sub-saharan Africa for tourists, investors and students.\n\n- hotels with photos, available services and minimum cost of accommodation\n- companies and executives behind Africa\'s economic growth\n- secondary and advanced schools with high reputation and trainings provided</string>
+	<string name="AboutKaassa_label">About Kaassa</string>
+    
 </resources>

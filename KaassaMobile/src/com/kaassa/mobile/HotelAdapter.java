@@ -1,7 +1,11 @@
 package com.kaassa.mobile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -9,6 +13,8 @@ import org.json.JSONException;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +24,29 @@ import android.widget.TextView;
 
 public class HotelAdapter extends BaseAdapter {
 	
+	 // create an access to kaassa database
+	private KaassaDatabaseHelper databaseHelper;
+	
 	private ArrayList<hotelRecord> hotels = new ArrayList<hotelRecord>();
+	
+	//initialise an Hotel Record
+	private String HotelName=null;
+	private String HotelLocationAddress=null;
+	private String HotelLocationCityName=null;
+	private String HotelLocationCityIs_top=null;
+	private String HotelLocationCountryName_fr=null;
+	private String HotelLocationCountryName_en=null;
+	private String HotelLocationPresentation_fr=null;
+	private String HotelLocationPresentation_en=null;
+	private String HotelContactEmail=null;
+	private String HotelContactPhone_one=null;
+	private String HotelContactPhone_two=null;
+	private String HotelContactWeb_site=null;
+	private String HotelBillingPrice_min=null;
+	private String HotelBillingFrequency=null;
+	private String HotelStars=null;
+	private ArrayList<String> HotelServicesName_fr = new ArrayList<String>();
+	private ArrayList<String> HotelServicesName_en = new ArrayList<String>();
 	
 	public HotelAdapter(Context myContext) {
 			AssetManager mngr = myContext.getAssets();
@@ -60,64 +88,117 @@ public class HotelAdapter extends BaseAdapter {
 				e1.printStackTrace();
 			}
 	        
-	        // déclaration d'une liste d'hotel bis 
-	    	String HotelName=null;
-	    	String HotelLocationAddress=null;
-	    	String HotelLocationCityName=null;
-	    	String HotelLocationCityIs_top=null;
-	    	String HotelLocationCountryName_fr=null;
-	    	String HotelLocationCountryName_en=null;
-	    	String HotelLocationPresentation_fr=null;
-	    	String HotelLocationPresentation_en=null;
-	    	String HotelContactPhone_one=null;
-	    	String HotelContactPhone_two=null;
-	    	String HotelContactWeb_site=null;
-	    	String HotelBillingPrice_min=null;
-	    	String HotelBillingFrequency=null;
-	    	String HotelStars=null;
-	    	ArrayList<String> HotelServicesName_fr = new ArrayList<String> () ;
-	    	ArrayList<String> HotelServicesName_en = new ArrayList<String> ();
+
+			
+			//Instantiate database helper
+	    	databaseHelper = new KaassaDatabaseHelper(myContext);
+	    	
+	    	Log.i("numHotel: ",String.valueOf(reader.length()));
 	        
-	        for(int i=0;i<reader.length();i++){
-	     			try {
-	     		        HotelName = reader.getJSONObject(i).getString("name");
-	     		        HotelLocationAddress = reader.getJSONObject(i).getJSONObject("location").getString("address");
-	     		        HotelLocationCityName = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("name");
-	     		        HotelLocationCityIs_top = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").getString("is_top");
-	     		        HotelLocationCountryName_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_f_r");
-	     		        HotelLocationCountryName_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("name_e_n");
-	     		        HotelLocationPresentation_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("presentation_f_r");
-	     		        HotelLocationPresentation_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").getString("presentation_e_n");
-	     		        HotelContactPhone_one = reader.getJSONObject(i).getJSONObject("contact").getString("phone_one");
-	     		        HotelContactPhone_two = reader.getJSONObject(i).getJSONObject("contact").getString("phone_two");
-	     		        HotelContactWeb_site = reader.getJSONObject(i).getJSONObject("contact").getString("web_site");
-	     		        
-	     		       JSONArray HotelServicesTb = reader.getJSONObject(i).getJSONArray("services");
+	        for(int i=0;i<reader.length();i++)
+	        {
+ 		        try {
+					HotelName = reader.getJSONObject(i).optString("name");
+					HotelLocationAddress = reader.getJSONObject(i).getJSONObject("location").optString("address");
+					HotelLocationCityName = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").optString("name");
+					HotelLocationCityIs_top = reader.getJSONObject(i).getJSONObject("location").getJSONObject("city").optString("is_top");
+					HotelLocationCountryName_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").optString("name_f_r");
+					HotelLocationCountryName_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").optString("name_e_n");
+					HotelLocationPresentation_fr = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").optString("presentation_f_r");
+					HotelLocationPresentation_en = reader.getJSONObject(i).getJSONObject("location").getJSONObject("country").optString("presentation_e_n");
+					HotelContactEmail = reader.getJSONObject(i).getJSONObject("contact").optString("email");
+					HotelContactPhone_one = reader.getJSONObject(i).getJSONObject("contact").optString("phone_one");
+					HotelContactPhone_two = reader.getJSONObject(i).getJSONObject("contact").optString("phone_two");
+					HotelContactWeb_site = reader.getJSONObject(i).getJSONObject("contact").optString("web_site");
+					
+					JSONArray HotelServicesTb = reader.getJSONObject(i).getJSONArray("services");
 
-	     		       
-	     		       for(int j=0;j<HotelServicesTb.length();j++){
-	     		    	 // HotelServicesName_fr [j] = HotelServicesTb.getJSONObject(j).getString("name_f_r");
-	     		    	// HotelServicesName_en [j] = HotelServicesTb.getJSONObject(j).getString("name_e_n");
-	     		    	  HotelServicesName_fr.add(HotelServicesTb.getJSONObject(j).getString("name_f_r"));
-	     		    	  HotelServicesName_en.add(HotelServicesTb.getJSONObject(j).getString("name_e_n"));
+       
+			       for(int j=0;j<HotelServicesTb.length();j++)
+			       {
+						  HotelServicesName_fr.add(HotelServicesTb.getJSONObject(j).optString("name_f_r"));
+						  HotelServicesName_en.add(HotelServicesTb.getJSONObject(j).optString("name_e_n"));
+			
+			       }
+     
+					HotelBillingPrice_min = reader.getJSONObject(i).getJSONObject("billing").optString("price_min");
+					HotelBillingFrequency = reader.getJSONObject(i).getJSONObject("billing").optString("frequency");	     		        
+					HotelStars = reader.getJSONObject(i).optString("stars");
+					
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+     		        
+     		        hotels.add(i, new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en.toString()));
+	     		    Log.i("Hotel record: ", HotelName);
+	     		    Log.i("Hotel stars: ", String.valueOf(HotelStars));
+     		        
 
-	     		       }
-	     		     
-	     		        HotelBillingPrice_min = reader.getJSONObject(i).getJSONObject("billing").getString("price_min");
-	     		     	HotelBillingFrequency = reader.getJSONObject(i).getJSONObject("billing").getString("frequency");	     		        
-	     		        HotelStars = reader.getJSONObject(i).getString("stars");
-	     		        
-	     		        hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
-	     		     //   Log.i("Hotel parameters: ",HotelServicesTb.toString());
-	     			} catch (JSONException e) {
-	     				// TODO Auto-generated catch block
-	     				e.printStackTrace();
-	     			}
+	     		    
+     		        // Save hotel to Kaassa Database
+	     		    databaseHelper.saveHotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en.toString());
+	     		    backup();
+
+	     		    //Réintialiser un record Hotel
+	     		   initHotelrecod();
+	 
 	             }
-
+	        Log.i("numHotel2: ",String.valueOf(hotels.size()));
 		    
 	    
 		}
+	
+	//initialise an Hotel Record
+	public void initHotelrecod(){
+		
+    	 HotelName=null;
+    	 HotelLocationAddress=null;
+    	 HotelLocationCityName=null;
+    	 HotelLocationCityIs_top=null;
+    	 HotelLocationCountryName_fr=null;
+    	 HotelLocationCountryName_en=null;
+    	 HotelLocationPresentation_fr=null;
+    	 HotelLocationPresentation_en=null;
+    	 HotelContactEmail=null;
+    	 HotelContactPhone_one=null;
+    	 HotelContactPhone_two=null;
+    	 HotelContactWeb_site=null;
+    	 HotelBillingPrice_min=null;
+    	 HotelBillingFrequency=null;
+    	 HotelStars=null;
+    	 HotelServicesName_fr.clear();
+    	 HotelServicesName_en.clear();
+	}
+	
+	
+	//Find the current kaassa database and copy it to a current directory with read permission (sdcard for example)
+	public void backup() {
+	    try {
+	        File sdcard = Environment.getExternalStorageDirectory();
+	        File outputFile = new File("/sdcard/Pictures",
+	                "kaassa.bak");
+
+	        if (!outputFile.exists()) 
+	             outputFile.createNewFile(); 
+
+	        File data = Environment.getDataDirectory();
+	        File inputFile = new File(data, "data/com.kaassa.mobile/databases/kaassa.db");
+	        InputStream input = new FileInputStream(inputFile);
+	        OutputStream output = new FileOutputStream(outputFile);
+	        byte[] buffer = new byte[1024];
+	        int length;
+	        while ((length = input.read(buffer)) > 0) {
+	            output.write(buffer, 0, length);
+	        }
+	        output.flush();
+	        output.close();
+	        input.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        throw new Error("Copying Failed");
+	    }
+	}
 	
 	@Override
 	public int getCount() {
@@ -212,7 +293,10 @@ public class HotelAdapter extends BaseAdapter {
 		hotel_country.setText(hotel.getHotelLocationCountryName_fr());
 
 		//set stars image
-		setImageStar(Integer.parseInt(hotel.getHotelStars()),view);
+		int numberOfStars = 0;
+		if (hotel.HotelStars != null)
+			numberOfStars=Integer.parseInt(hotel.HotelStars); 
+		setImageStar(numberOfStars,view);
 		return view;
 		
 		
