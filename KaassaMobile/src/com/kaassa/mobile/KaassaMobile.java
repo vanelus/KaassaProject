@@ -1,19 +1,33 @@
 package com.kaassa.mobile;
 
+import java.util.Locale;
+
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
-public class KaassaMobile extends Activity
+public class KaassaMobile extends ActionBarActivity
 {
 	HotelAdapter HotelAdapter;
+	EditText editsearch;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -50,11 +64,103 @@ public class KaassaMobile extends Activity
     	    	}
     		});
 
+		// Locate the EditText in listview_main.xml
+		editsearch = (EditText) findViewById(R.id.search);
+ 
+		// Capture Text in EditText
+		editsearch.addTextChangedListener(new TextWatcher() {
+ 
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				String text = editsearch.getText().toString().toLowerCase(Locale.getDefault());
+				HotelAdapter.filter(text,getBaseContext());
+								
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+ 
+		});
     	
+		
     }
 
         
-        
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.hotellist_menu, menu);
+		 
+		 
+		return true;
+	} 
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		
+		switch(id) 
+		{
+			case R.id.action_filter:
+				//Display a dialog to filter the hotellist	
+
+                final Dialog dialog = new Dialog(KaassaMobile.this);
+                // Include dialog.xml file
+                dialog.setContentView(R.layout.dialog_filter);
+                // Set dialog title
+                dialog.setTitle("Filter Form");
+ 
+                dialog.show();
+                 
+                Button cancelButton = (Button) dialog.findViewById(R.id.dialog_filter_cancel_button);
+                Button submitButton = (Button) dialog.findViewById(R.id.dialog_filter_submit_button);
+                // if decline button is clicked, close the custom dialog
+                cancelButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Close dialog
+                        dialog.dismiss();
+                    }
+                });
+                
+                submitButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Filter HotelList
+                        
+                        // Close dialog
+                        dialog.dismiss();
+                    	
+                    	// Get Filer attributes values
+                    	//EditText numofstar = (EditText) findViewById(R.id.dialog_filter_numofstars_edittext);
+                        EditText numofstar = (EditText)dialog.findViewById(R.id.dialog_filter_numofstars_edittext);
+                    	
+                    	// Call the function filter by Number of stars
+                    	HotelAdapter.filterByStars(numofstar.getText().toString(),getBaseContext());
+                    	//HotelAdapter.filterByStars("3",getBaseContext());
+                    }
+                });
+		    default:
+		        return super.onOptionsItemSelected(item);
+		}
+	 }
+		
+
+	
     
     public void onStart(Bundle savedInstanceState)
     {

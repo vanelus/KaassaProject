@@ -7,12 +7,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +36,7 @@ public class HotelAdapter extends BaseAdapter {
 	private KaassaDatabaseHelper databaseHelper;
 	
 	private ArrayList<hotelRecord> hotels = new ArrayList<hotelRecord>();
+	private ArrayList<hotelRecord> savehotels = new ArrayList<hotelRecord>();
 	
 	//initialise an Hotel Record
 	private String HotelName=null;
@@ -175,7 +184,7 @@ public class HotelAdapter extends BaseAdapter {
 	//Find the current kaassa database and copy it to a current directory with read permission (sdcard for example)
 	public void backup() {
 	    try {
-	        File sdcard = Environment.getExternalStorageDirectory();
+	        Environment.getExternalStorageDirectory();
 	        File outputFile = new File("/sdcard/Pictures",
 	                "kaassa.bak");
 
@@ -301,5 +310,89 @@ public class HotelAdapter extends BaseAdapter {
 		
 		
 	}
+	
+	// Filter Hotels By Name
+		public void filter(final String charText, Context myContext) {
+			final String charText2 = charText.toLowerCase(Locale.getDefault());
+			
+			
+			//Get hotels list from database
+			hotels.clear();
+			Cursor cursor = databaseHelper.getAllHotelRecords();
+			String HotelServicesName_en;
+			
+			if (cursor.moveToFirst()) 
+			{
+				do 
+				{
+					if(cursor.getString(1).toLowerCase(Locale.getDefault()).contains(charText2))
+					{
+						 HotelName = cursor.getString(1);
+						 HotelLocationAddress = cursor.getString(2);
+						 HotelLocationCityName = cursor.getString(3);
+						 HotelLocationCountryName_fr = cursor.getString(4);
+						 HotelStars = cursor.getString(5);
+						 HotelContactEmail = cursor.getString(6);
+						 HotelContactPhone_one = cursor.getString(7);
+						 HotelContactPhone_two = cursor.getString(8);
+						 HotelContactWeb_site = cursor.getString(9);
+						 HotelServicesName_en = cursor.getString(10);
+						
+						 hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
+		
+					
+					}
+				} while (cursor.moveToNext());
+			}
+			
+			// Fermeture du curseur
+			if (!cursor.isClosed()) {
+			cursor.close();
+			}
+
+			
+			notifyDataSetChanged();
+		}
+		
+		// Filter Hotels By Name
+		public void filterByStars(final String numofstar, Context myContext) {
+						
+			//Get hotels list from database
+			hotels.clear();
+			Cursor cursor = databaseHelper.getAllHotelRecords();
+			String HotelServicesName_en;
+			
+			if (cursor.moveToFirst()) 
+			{
+				do 
+				{
+					if(cursor.getString(5).equals(numofstar))
+					{
+						 HotelName = cursor.getString(1);
+						 HotelLocationAddress = cursor.getString(2);
+						 HotelLocationCityName = cursor.getString(3);
+						 HotelLocationCountryName_fr = cursor.getString(4);
+						 HotelStars = cursor.getString(5);
+						 HotelContactEmail = cursor.getString(6);
+						 HotelContactPhone_one = cursor.getString(7);
+						 HotelContactPhone_two = cursor.getString(8);
+						 HotelContactWeb_site = cursor.getString(9);
+						 HotelServicesName_en = cursor.getString(10);
+						
+						 hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
+		
+					
+					}
+				} while (cursor.moveToNext());
+			}
+			
+			// Fermeture du curseur
+			if (!cursor.isClosed()) {
+			cursor.close();
+			}
+
+			
+			notifyDataSetChanged();
+		}
 
 }

@@ -2,8 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}" 
+    android:background="@android:color/white"
+    
+    >
 
+  <EditText
+        android:id="@+id/search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:textColor="@android:color/black"
+        >
+ 
+        <requestFocus />
+  </EditText>
   <ListView
         android:id="@+id/hotels_list"
         android:layout_width="match_parent"
@@ -11,6 +23,7 @@
         android:divider="@android:color/black"
         android:dividerHeight="1sp"
         android:background="#FFFFFF"
+        android:layout_below="@+id/search"
          >
   </ListView>
 

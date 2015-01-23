@@ -45,7 +45,7 @@
 	    <RadioButton android:id="@+id/radio_enterprise"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Enterprises"
+	        android:text="Companies"
 	        android:textSize="13sp"
 	        android:textColor="@android:color/black"
 	        android:onClick="onRadioButtonClicked"/>
