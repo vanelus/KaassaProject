@@ -355,36 +355,103 @@ public class HotelAdapter extends BaseAdapter {
 		}
 		
 		// Filter Hotels By Name
-		public void filterByStars(final String numofstar, Context myContext) {
+		public void filterByStars(final String country, final String numofstar, final String checkedServices, Context myContext) {
 						
 			//Get hotels list from database
 			hotels.clear();
 			Cursor cursor = databaseHelper.getAllHotelRecords();
 			String HotelServicesName_en;
 			
-			if (cursor.moveToFirst()) 
+			// All filers are empty: Do nothing
+			if (numofstar.equals("") && country.equals("") && checkedServices.equals(""))
 			{
-				do 
+				if (cursor.moveToFirst()) 
 				{
-					if(cursor.getString(5).equals(numofstar))
+					do 
 					{
-						 HotelName = cursor.getString(1);
-						 HotelLocationAddress = cursor.getString(2);
-						 HotelLocationCityName = cursor.getString(3);
-						 HotelLocationCountryName_fr = cursor.getString(4);
-						 HotelStars = cursor.getString(5);
-						 HotelContactEmail = cursor.getString(6);
-						 HotelContactPhone_one = cursor.getString(7);
-						 HotelContactPhone_two = cursor.getString(8);
-						 HotelContactWeb_site = cursor.getString(9);
-						 HotelServicesName_en = cursor.getString(10);
+						CreateHotelListByCursor(cursor);
 						
-						 hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
-		
-					
-					}
-				} while (cursor.moveToNext());
+					} while (cursor.moveToNext());
+				}
+				
 			}
+			else
+			{
+				// Only numofstar is not empty
+				if ( !numofstar.equals("") && country.equals("") && checkedServices.equals("") )
+				{
+					if (cursor.moveToFirst()) 
+					{
+						do 
+						{
+							//if 
+							if(cursor.getString(5).equals(numofstar))
+							{
+								CreateHotelListByCursor(cursor);
+							
+							}
+						} while (cursor.moveToNext());
+					}
+				}
+				
+				// Only COuntry is not empty
+				if ( !country.equals("") && numofstar.equals("") && checkedServices.equals(""))
+				{
+					if (cursor.moveToFirst()) 
+					{
+						do 
+						{
+							//if 
+							if(cursor.getString(4).equals(country))
+							{
+								CreateHotelListByCursor(cursor);
+							
+							}
+						} while (cursor.moveToNext());
+					}
+				}
+				
+				// Only checkedServices is not empty
+				if ( !checkedServices.equals("") && numofstar.equals("") && country.equals(""))
+				{
+					if (cursor.moveToFirst()) 
+					{
+						do 
+						{
+							//if 
+							if(cursor.getString(11).contains(checkedServices) )
+							{
+								CreateHotelListByCursor(cursor);
+							
+							}
+						} while (cursor.moveToNext());
+					}
+				}
+				
+				// All filters are not empy
+				if ( !numofstar.equals("") && !country.equals("") && !checkedServices.equals(""))
+				{
+					if (cursor.moveToFirst()) 
+					{
+						do 
+						{
+							//if 
+							if(cursor.getString(5).equals(numofstar) && cursor.getString(4).equals(country) && cursor.getString(11).contains(checkedServices) )
+							{
+								CreateHotelListByCursor(cursor);
+							
+							}
+						} while (cursor.moveToNext());
+					}
+				}
+			}
+				
+			
+			
+			
+
+			
+
 			
 			// Fermeture du curseur
 			if (!cursor.isClosed()) {
@@ -394,5 +461,22 @@ public class HotelAdapter extends BaseAdapter {
 			
 			notifyDataSetChanged();
 		}
-
+		
+	// Create Hotellist by cursor
+	public void CreateHotelListByCursor (Cursor cursor)
+	{
+		String HotelName = cursor.getString(1);
+		String	HotelLocationAddress = cursor.getString(2);
+		String HotelLocationCityName = cursor.getString(3);
+		String HotelLocationCountryName_fr = cursor.getString(4);
+		String HotelStars = cursor.getString(5);
+		String HotelContactEmail = cursor.getString(6);
+		String HotelContactPhone_one = cursor.getString(7);
+		String HotelContactPhone_two = cursor.getString(8);
+		String HotelContactWeb_site = cursor.getString(9);
+		String HotelBillingPrice_min = cursor.getString(10);
+		String HotelServicesName_en = cursor.getString(11);
+		
+		 hotels.add(new hotelRecord(HotelName,HotelLocationAddress,HotelLocationCityName,HotelLocationCountryName_fr,HotelStars,HotelContactEmail,HotelContactPhone_one,HotelContactPhone_two,HotelContactWeb_site,HotelBillingPrice_min,HotelServicesName_en));
+	}
 }

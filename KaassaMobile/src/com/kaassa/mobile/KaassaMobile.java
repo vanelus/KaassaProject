@@ -12,11 +12,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -124,6 +126,18 @@ public class KaassaMobile extends ActionBarActivity
                 // Set dialog title
                 dialog.setTitle("Filter Form");
  
+                        
+                final ListView dialog_services_list = (ListView) dialog.findViewById(R.id.dialog_services_list);
+
+                String[] servicesList1 = {"Air-conditioning","Beauty Parlor/Hairdressing","Car rental","Casino","Fitness/Gym/Spa","Internet/Wi-Fi","Laundry/Dry cleaning","Meeting room","Nightclub","Parking","Pets allowed","Restaurant","Room service","Safe","Satelitte TV","Secretarial/Business Center","Snack-Bar","Store / Gift shop","Swimming pool","Tennis"};
+                		
+                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkitemservice, servicesList1);
+                dialog_services_list.setAdapter(adapter);
+                dialog_services_list.setItemsCanFocus(false);
+                // we want multiple clicks 
+                dialog_services_list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+                
+                // Display the dialog filter
                 dialog.show();
                  
                 Button cancelButton = (Button) dialog.findViewById(R.id.dialog_filter_cancel_button);
@@ -148,9 +162,36 @@ public class KaassaMobile extends ActionBarActivity
                     	// Get Filer attributes values
                     	//EditText numofstar = (EditText) findViewById(R.id.dialog_filter_numofstars_edittext);
                         EditText numofstar = (EditText)dialog.findViewById(R.id.dialog_filter_numofstars_edittext);
+                        EditText country = (EditText)dialog.findViewById(R.id.dialog_filter_country_edittext);
+                        EditText city = (EditText)dialog.findViewById(R.id.dialog_filter_city_edittext);
                     	
-                    	// Call the function filter by Number of stars
-                    	HotelAdapter.filterByStars(numofstar.getText().toString(),getBaseContext());
+                        //Get check services items
+    
+                        int cntChoice = dialog_services_list.getCount();
+
+                        String checkedServices = "";
+
+                        SparseBooleanArray sparseBooleanArray = dialog_services_list.getCheckedItemPositions();
+
+                        for(int i = 0; i < cntChoice; i++)
+                        {
+
+                             if(sparseBooleanArray.get(i) == true) 
+                             {
+                            	 checkedServices += dialog_services_list.getItemAtPosition(i).toString() + ",";
+                             }
+                         }
+                                            
+                        
+                        
+                        String numofstar_text = numofstar.getText().toString();
+                        String country_text = country.getText().toString();
+                        String city_text = city.getText().toString();
+                    	
+                        		
+                        // Call the function filter by Number of stars, Country, city
+                        		
+                    	HotelAdapter.filterByStars(country_text, numofstar_text,checkedServices, getBaseContext());
                     	//HotelAdapter.filterByStars("3",getBaseContext());
                     }
                 });
