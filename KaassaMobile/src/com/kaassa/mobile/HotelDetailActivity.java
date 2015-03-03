@@ -1,7 +1,5 @@
 package com.kaassa.mobile;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,7 +36,8 @@ public class HotelDetailActivity extends Activity {
 	String HotelStars="";
 	String HotelServicesName_en = "";
 	
-    public void onCreate(Bundle savedInstanceState)
+    @Override
+	public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hoteldetaillist);
@@ -128,7 +127,7 @@ public class HotelDetailActivity extends Activity {
         hotel_detail_pricemin.setText(minPrice);
         
       // Get the "hoteldetaillist" layout
-        View hoteletaillist = (View)findViewById(R.id.hoteletaillist);
+        View hoteletaillist = findViewById(R.id.hoteletaillist);
         int numberOfStars = 0;
         if (HotelStars != null)
         	numberOfStars=Integer.parseInt(HotelStars); 

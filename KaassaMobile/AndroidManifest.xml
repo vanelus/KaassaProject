@@ -10,7 +10,6 @@
 
     <application
         android:icon="@drawable/kaassa_logo"
-        android:theme="@style/CustomActionBarTheme"
         android:label="@string/app_name" >
         <activity
 			android:name=".MainActivity"
@@ -29,10 +28,6 @@
         <activity
             android:name=".KaassaMobile"
             android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".AboutKaassa"
-            android:label="@string/AboutKaassa_label" >
         </activity>
     </application>
 

@@ -12,12 +12,6 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;

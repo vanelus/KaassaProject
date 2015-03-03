@@ -3,29 +3,21 @@ package com.kaassa.mobile;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 
-public class KaassaMobile extends ActionBarActivity
+public class KaassaMobile extends Activity
 {
 	HotelAdapter HotelAdapter;
 	EditText editsearch;
@@ -109,6 +101,7 @@ public class KaassaMobile extends ActionBarActivity
 		return true;
 	} 
 	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
@@ -118,83 +111,83 @@ public class KaassaMobile extends ActionBarActivity
 		switch(id) 
 		{
 			case R.id.action_filter:
-				//Display a dialog to filter the hotellist	
-
-                final Dialog dialog = new Dialog(KaassaMobile.this);
-                // Include dialog.xml file
-                dialog.setContentView(R.layout.dialog_filter);
-                // Set dialog title
-                dialog.setTitle("Filter Form");
- 
-                        
-                final ListView dialog_services_list = (ListView) dialog.findViewById(R.id.dialog_services_list);
-
-                String[] servicesList1 = {"Air-conditioning","Beauty Parlor/Hairdressing","Car rental","Casino","Fitness/Gym/Spa","Internet/Wi-Fi","Laundry/Dry cleaning","Meeting room","Nightclub","Parking","Pets allowed","Restaurant","Room service","Safe","Satelitte TV","Secretarial/Business Center","Snack-Bar","Store / Gift shop","Swimming pool","Tennis"};
-                		
-                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkitemservice, servicesList1);
-                dialog_services_list.setAdapter(adapter);
-                dialog_services_list.setItemsCanFocus(false);
-                // we want multiple clicks 
-                dialog_services_list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-                
-                // Display the dialog filter
-                dialog.show();
-                 
-                Button cancelButton = (Button) dialog.findViewById(R.id.dialog_filter_cancel_button);
-                Button submitButton = (Button) dialog.findViewById(R.id.dialog_filter_submit_button);
-                // if decline button is clicked, close the custom dialog
-                cancelButton.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Close dialog
-                        dialog.dismiss();
-                    }
-                });
-                
-                submitButton.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Filter HotelList
-                        
-                        // Close dialog
-                        dialog.dismiss();
-                    	
-                    	// Get Filer attributes values
-                    	//EditText numofstar = (EditText) findViewById(R.id.dialog_filter_numofstars_edittext);
-                        EditText numofstar = (EditText)dialog.findViewById(R.id.dialog_filter_numofstars_edittext);
-                        EditText country = (EditText)dialog.findViewById(R.id.dialog_filter_country_edittext);
-                        EditText city = (EditText)dialog.findViewById(R.id.dialog_filter_city_edittext);
-                    	
-                        //Get check services items
-    
-                        int cntChoice = dialog_services_list.getCount();
-
-                        String checkedServices = "";
-
-                        SparseBooleanArray sparseBooleanArray = dialog_services_list.getCheckedItemPositions();
-
-                        for(int i = 0; i < cntChoice; i++)
-                        {
-
-                             if(sparseBooleanArray.get(i) == true) 
-                             {
-                            	 checkedServices += dialog_services_list.getItemAtPosition(i).toString() + ",";
-                             }
-                         }
-                                            
-                        
-                        
-                        String numofstar_text = numofstar.getText().toString();
-                        String country_text = country.getText().toString();
-                        String city_text = city.getText().toString();
-                    	
-                        		
-                        // Call the function filter by Number of stars, Country, city
-                        		
-                    	HotelAdapter.filterByStars(country_text, numofstar_text,checkedServices, getBaseContext());
-                    	//HotelAdapter.filterByStars("3",getBaseContext());
-                    }
-                });
+//				//Display a dialog to filter the hotellist	
+//
+//                final Dialog dialog = new Dialog(KaassaMobile.this);
+//                // Include dialog.xml file
+//                dialog.setContentView(R.layout.dialog_filter);
+//                // Set dialog title
+//                dialog.setTitle("Filter Form");
+// 
+//                        
+//                final ListView dialog_services_list = (ListView) dialog.findViewById(R.id.dialog_services_list);
+//
+//                String[] servicesList1 = {"Air-conditioning","Beauty Parlor/Hairdressing","Car rental","Casino","Fitness/Gym/Spa","Internet/Wi-Fi","Laundry/Dry cleaning","Meeting room","Nightclub","Parking","Pets allowed","Restaurant","Room service","Safe","Satelitte TV","Secretarial/Business Center","Snack-Bar","Store / Gift shop","Swimming pool","Tennis"};
+//                		
+//                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkitemservice, servicesList1);
+//                dialog_services_list.setAdapter(adapter);
+//                dialog_services_list.setItemsCanFocus(false);
+//                // we want multiple clicks 
+//                dialog_services_list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+//                
+//                // Display the dialog filter
+//                dialog.show();
+//                 
+//                Button cancelButton = (Button) dialog.findViewById(R.id.filtermenu_cancel_button);
+//                Button submitButton = (Button) dialog.findViewById(R.id.filtermenu_submit_button);
+//                // if decline button is clicked, close the custom dialog
+//                cancelButton.setOnClickListener(new OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        // Close dialog
+//                        dialog.dismiss();
+//                    }
+//                });
+//                
+//                submitButton.setOnClickListener(new OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        // Filter HotelList
+//                        
+//                        // Close dialog
+//                        dialog.dismiss();
+//                    	
+//                    	// Get Filer attributes values
+//                    	//EditText numofstar = (EditText) findViewById(R.id.dialog_filter_numofstars_edittext);
+////                        EditText numofstar = (EditText)dialog.findViewById(R.id.dialog_filter_numofstars_edittext);
+////                        EditText country = (EditText)dialog.findViewById(R.id.dialog_filter_country_edittext);
+////                        EditText city = (EditText)dialog.findViewById(R.id.dialog_filter_city_edittext);
+////                    	
+//                        //Get check services items
+//    
+//                        int cntChoice = dialog_services_list.getCount();
+//
+//                        String checkedServices = "";
+//
+//                        SparseBooleanArray sparseBooleanArray = dialog_services_list.getCheckedItemPositions();
+//
+//                        for(int i = 0; i < cntChoice; i++)
+//                        {
+//
+//                             if(sparseBooleanArray.get(i) == true) 
+//                             {
+//                            	 checkedServices += dialog_services_list.getItemAtPosition(i).toString() + ",";
+//                             }
+//                         }
+//                                            
+//                        
+//                        
+////                        String numofstar_text = numofstar.getText().toString();
+////                        String country_text = country.getText().toString();
+////                        String city_text = city.getText().toString();
+//                    	
+//                        		
+//                        // Call the function filter by Number of stars, Country, city
+//                        		
+//                    //	HotelAdapter.filterByStars(country_text, numofstar_text,checkedServices, getBaseContext());
+//                    	//HotelAdapter.filterByStars("3",getBaseContext());
+//                    }
+//                });
 		    default:
 		        return super.onOptionsItemSelected(item);
 		}
@@ -214,13 +207,4 @@ public class KaassaMobile extends ActionBarActivity
     	
     }
    
-    // check network connection
-    public boolean isConnected(){
-        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo2 = connMgr.getActiveNetworkInfo();
-            if (networkInfo2 != null && networkInfo2.isConnected()) 
-                return true;
-            else
-                return false;   
-    }
 }

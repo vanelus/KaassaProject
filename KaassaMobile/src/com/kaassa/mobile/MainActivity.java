@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 	
 	//Search ON. Identify on which object to start the search? The default value is 'Enterprise'
 	// possibles values are: Enterprise , School, Hotel, Executive
@@ -106,8 +106,8 @@ public class MainActivity extends ActionBarActivity {
 			case R.id.action_settings:
 				
 				
-	    	    Intent intent = new Intent(this,AboutKaassa.class);
-	    	    startActivity(intent);  
+//	    	    Intent intent = new Intent(this,AboutKaassa.class);
+//	    	    startActivity(intent);  
 	    	    return true;
 			case R.id.action_leaveusmessage:
 	           	
