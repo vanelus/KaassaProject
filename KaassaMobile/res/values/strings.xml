@@ -10,5 +10,11 @@
     <string name="action_filter">Filter</string>
     <string name="aboutkaassa_value">Kaassa - About\n\nSurveillance in sub-saharan Africa for tourists, investors and students.\n\n- hotels with photos, available services and minimum cost of accommodation\n- companies and executives behind Africa\'s economic growth\n- secondary and advanced schools with high reputation and trainings provided</string>
 	<string name="AboutKaassa_label">About Kaassa</string>
+	<string name="filtermenu_country_textview_value">Country :</string>
+	<string name="filtermenu_city_textview_value">City :</string>
+	<string name="filtermenu_submit_button_value">Submit</string>
+	<string name="filtermenu_cancel_button_value">Cancel</string>
+	
+	
     
 </resources>

@@ -348,113 +348,135 @@ public class HotelAdapter extends BaseAdapter {
 			notifyDataSetChanged();
 		}
 		
-		// Filter Hotels By Name
-		public void filterByStars(final String country, final String numofstar, final String checkedServices, Context myContext) {
-						
-			//Get hotels list from database
-			hotels.clear();
-			Cursor cursor = databaseHelper.getAllHotelRecords();
-			String HotelServicesName_en;
-			
-			// All filers are empty: Do nothing
-			if (numofstar.equals("") && country.equals("") && checkedServices.equals(""))
-			{
-				if (cursor.moveToFirst()) 
-				{
-					do 
-					{
-						CreateHotelListByCursor(cursor);
-						
-					} while (cursor.moveToNext());
-				}
-				
-			}
-			else
-			{
-				// Only numofstar is not empty
-				if ( !numofstar.equals("") && country.equals("") && checkedServices.equals("") )
-				{
-					if (cursor.moveToFirst()) 
-					{
-						do 
-						{
-							//if 
-							if(cursor.getString(5).equals(numofstar))
-							{
-								CreateHotelListByCursor(cursor);
-							
-							}
-						} while (cursor.moveToNext());
-					}
-				}
-				
-				// Only COuntry is not empty
-				if ( !country.equals("") && numofstar.equals("") && checkedServices.equals(""))
-				{
-					if (cursor.moveToFirst()) 
-					{
-						do 
-						{
-							//if 
-							if(cursor.getString(4).equals(country))
-							{
-								CreateHotelListByCursor(cursor);
-							
-							}
-						} while (cursor.moveToNext());
-					}
-				}
-				
-				// Only checkedServices is not empty
-				if ( !checkedServices.equals("") && numofstar.equals("") && country.equals(""))
-				{
-					if (cursor.moveToFirst()) 
-					{
-						do 
-						{
-							//if 
-							if(cursor.getString(11).contains(checkedServices) )
-							{
-								CreateHotelListByCursor(cursor);
-							
-							}
-						} while (cursor.moveToNext());
-					}
-				}
-				
-				// All filters are not empy
-				if ( !numofstar.equals("") && !country.equals("") && !checkedServices.equals(""))
-				{
-					if (cursor.moveToFirst()) 
-					{
-						do 
-						{
-							//if 
-							if(cursor.getString(5).equals(numofstar) && cursor.getString(4).equals(country) && cursor.getString(11).contains(checkedServices) )
-							{
-								CreateHotelListByCursor(cursor);
-							
-							}
-						} while (cursor.moveToNext());
-					}
-				}
-			}
-				
-			
-			
-			
-
-			
-
-			
-			// Fermeture du curseur
-			if (!cursor.isClosed()) {
-			cursor.close();
-			}
-
-			
-			notifyDataSetChanged();
-		}
+		// Function: Filter a hotels list by some parameters : country, city, stars, services
+		
+	    public void filterdialoghotel(String country, String  city, String services, String stars, Context context)
+	    {
+	        hotels.clear();
+	        Cursor cursor = databaseHelper.getAllHotelRecords();
+	        if (city.equals("") && country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                CreateHotelListByCursor(cursor);
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(5).contains(stars))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && country.equals("") && !stars.equals("") && !services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(5).contains(stars) && cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && !country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(4).contains(country))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && !country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(4).contains(country) && cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && !country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(4).contains(country) && cursor.getString(5).contains(stars))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (city.equals("") && country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(4).contains(country) && cursor.getString(5).contains(stars) && cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (!city.equals("") && !country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(3).contains(city) && cursor.getString(4).contains(country))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (!city.equals("") && !country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(3).contains(city) && cursor.getString(4).contains(country) && cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (!city.equals("") && !country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(3).contains(city) && cursor.getString(4).contains(country) && cursor.getString(5).contains(stars))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (!city.equals("") && !country.equals("") && !stars.equals("") && !services.equals("") && cursor.moveToFirst())
+	        {
+	            do
+	            {
+	                if (cursor.getString(5).equals(stars) && cursor.getString(4).equals(country) && cursor.getString(11).contains(services))
+	                {
+	                    CreateHotelListByCursor(cursor);
+	                }
+	            } while (cursor.moveToNext());
+	        }
+	        if (!cursor.isClosed())
+	        {
+	            cursor.close();
+	        }
+	        notifyDataSetChanged();
+	    }
 		
 	// Create Hotellist by cursor
 	public void CreateHotelListByCursor (Cursor cursor)

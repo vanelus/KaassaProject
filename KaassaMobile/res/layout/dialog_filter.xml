@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#FFFFFF">
+    
+<TextView 
+    android:id="@+id/filtermenu_country_textview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+	android:textStyle="bold"
+	android:textSize="15sp"
+	android:textColor="@android:color/black"
+	android:padding="10dp"
+	android:text="@string/filtermenu_country_textview_value"
+    />
+<Spinner
+    android:id="@+id/filtermenu_country_spinner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/filtermenu_country_textview"
+    android:padding="10dp"
+    />
+
+<TextView 
+    android:id="@+id/filtermenu_city_textview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+	android:textStyle="bold"
+	android:textSize="15sp"
+	android:textColor="@android:color/black"
+	android:padding="10dp"
+	android:text="@string/filtermenu_city_textview_value"
+    android:layout_below="@+id/filtermenu_country_textview"
+    />
+
+<Spinner
+    android:id="@+id/filtermenu_city_spinner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_below="@+id/filtermenu_country_textview"
+    android:layout_toRightOf="@+id/filtermenu_city_textview" />
+  
+ <TextView 
+    android:id="@+id/filtermenu_stars_textview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+	android:textStyle="bold"
+	android:textSize="15sp"
+	android:textColor="@android:color/black"
+	android:padding="10dp"
+	android:text="@string/filtermenu_country_textview_value"
+    />
+    <ImageView
+      	android:id="@+id/filtermenu_iconstar1_imageview"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+        android:src="@drawable/star_inactif"
+        android:layout_below="@+id/filtermenu_city_textview"
+        />
+      	
+      	<ImageView
+        android:id="@+id/filtermenu_iconstar2_imageview"
+	 	android:layout_width="32dp"
+	 	android:layout_height="32dp"
+        android:src="@drawable/star_inactif"
+        android:layout_below="@+id/filtermenu_city_textview"
+    	android:layout_toRightOf="@+id/filtermenu_iconstar1_imageview"
+        />
+      	<ImageView
+        android:id="@+id/filtermenu_iconstar3_imageview"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+        android:src="@drawable/star_inactif"
+        android:layout_below="@+id/filtermenu_city_textview"
+    	android:layout_toRightOf="@+id/filtermenu_iconstar2_imageview"
+        />        	        	
+      	<ImageView
+        android:id="@+id/filtermenu_iconstar4_imageview"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+        android:src="@drawable/star_inactif"
+        android:layout_below="@+id/filtermenu_city_textview"
+    	android:layout_toRightOf="@+id/filtermenu_iconstar3_imageview"
+        />
+      	<ImageView
+        android:id="@+id/filtermenu_iconstar5_imageview"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+        android:src="@drawable/star_inactif"
+        android:layout_below="@+id/filtermenu_city_textview"
+    	android:layout_toRightOf="@+id/filtermenu_iconstar4_imageview"
+        />   
+      	  <ListView
+        android:id="@+id/filtermenu_hotelservices_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:divider="@android:color/black"
+        android:dividerHeight="1sp"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/filtermenu_iconstar1_imageview"
+         >
+        </ListView>
+     
+     <Button
+        android:id="@+id/filtermenu_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/filtermenu_submit_button_value"
+		android:layout_below="@+id/filtermenu_hotelservices_listview"
+        />
+      	     
+      	     
+     <Button
+        android:id="@+id/filtermenu_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+		android:textStyle="bold"
+		android:textSize="15sp"
+		android:textColor="@android:color/black"
+		android:padding="10dp"
+		android:text="@string/filtermenu_cancel_button_value"
+		android:layout_below="@+id/filtermenu_hotelservices_listview"
+		android:layout_toRightOf="@+id/filtermenu_submit_button"
+		
+        />
+
+</RelativeLayout>
