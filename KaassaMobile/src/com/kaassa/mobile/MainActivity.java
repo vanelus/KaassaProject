@@ -7,10 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import android.R.string;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.ArrayRes;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -104,10 +108,29 @@ public class MainActivity extends Activity {
 		
 		switch(id) {
 			case R.id.action_settings:
+						
+				// 1. Instantiate an AlertDialog.AboutKaassa_dialog with its constructor
+				AlertDialog.Builder AboutKaassa_dialog = new AlertDialog.Builder(MainActivity.this);
+
+				// 2. Chain together various setter methods to set the dialog characteristics
+				AboutKaassa_dialog.setMessage(R.string.AboutKaassa_dialog_message);
+				AboutKaassa_dialog.setTitle(R.string.AboutKaassa_dialog_title);
 				
+				AboutKaassa_dialog.setNegativeButton(R.string.AboutKaassa_dialog_ok, new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			               // User cancelled the dialog
+			        	   dialog.dismiss();
+			           }
+			       });
+
+				// 3. Get the AboutKaassa_dialog from create()
+				AlertDialog dialog = AboutKaassa_dialog.create();
 				
-//	    	    Intent intent = new Intent(this,AboutKaassa.class);
-//	    	    startActivity(intent);  
+
+
+				//Close dialog		
+				dialog.show();
+
 	    	    return true;
 			case R.id.action_leaveusmessage:
 	           	
@@ -127,15 +150,6 @@ public class MainActivity extends Activity {
 	    }
 		
         	
-//		if (id == R.id.action_settings) {
-//			
-//    	    Intent intent = new Intent(this,AboutKaassa.class);
-//  	      	    
-//    	    startActivity(intent);      
-//
-//			
-//			return true;
-//		}
 	}
 	
 	

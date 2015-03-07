@@ -354,6 +354,7 @@ public class HotelAdapter extends BaseAdapter {
 	    {
 	        hotels.clear();
 	        Cursor cursor = databaseHelper.getAllHotelRecords();
+	     // case 0 0 0 0
 	        if (city.equals("") && country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -361,6 +362,7 @@ public class HotelAdapter extends BaseAdapter {
 	                CreateHotelListByCursor(cursor);
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 0 0 1
 	        if (city.equals("") && country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -371,6 +373,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 0 1 0
 	        if (city.equals("") && country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -381,6 +384,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 0 1 1
 	        if (city.equals("") && country.equals("") && !stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -391,6 +395,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 1 0 0
 	        if (city.equals("") && !country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -401,6 +406,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 1 0 1
 	        if (city.equals("") && !country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -411,6 +417,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 0 1 1 0
 	        if (city.equals("") && !country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -421,7 +428,8 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
-	        if (city.equals("") && country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
+	     // case 0 1 1 1
+	        if (city.equals("") && !country.equals("") && !stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do
 	            {
@@ -431,6 +439,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 1 1 0 0
 	        if (!city.equals("") && !country.equals("") && stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -441,6 +450,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	     // case 1 1 0 1
 	        if (!city.equals("") && !country.equals("") && stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -451,6 +461,7 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	        // case 1 1 1 0
 	        if (!city.equals("") && !country.equals("") && !stars.equals("") && services.equals("") && cursor.moveToFirst())
 	        {
 	            do
@@ -461,6 +472,8 @@ public class HotelAdapter extends BaseAdapter {
 	                }
 	            } while (cursor.moveToNext());
 	        }
+	        
+	        // case 1 0 1 1
 	        if (!city.equals("") && !country.equals("") && !stars.equals("") && !services.equals("") && cursor.moveToFirst())
 	        {
 	            do

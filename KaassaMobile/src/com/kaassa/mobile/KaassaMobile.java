@@ -468,6 +468,7 @@ public class KaassaMobile extends Activity
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
 	                numofstar_text = "1";
+	                icon_star_1_etat = true;
 	            } else
 	            {
 	                icon_star_1.setImageResource(R.drawable.star_inactif);
@@ -475,7 +476,8 @@ public class KaassaMobile extends Activity
 	                icon_star_3.setImageResource(R.drawable.star_inactif);
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
-	                numofstar_text = "0";
+	                numofstar_text = "";
+	                icon_star_1_etat = false;
 	            }
 	            
 	          break;
@@ -490,6 +492,7 @@ public class KaassaMobile extends Activity
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
 	                numofstar_text = "2";
+	                icon_star_2_etat = true;
 	            } else
 	            {
 	                icon_star_1.setImageResource(R.drawable.star_inactif);
@@ -497,7 +500,8 @@ public class KaassaMobile extends Activity
 	                icon_star_3.setImageResource(R.drawable.star_inactif);
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
-	                numofstar_text = "0";
+	                numofstar_text = "";
+	                icon_star_2_etat = false;
 	            }
 	          break;
 	          
@@ -512,6 +516,7 @@ public class KaassaMobile extends Activity
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
 	                numofstar_text = "3";
+	                icon_star_3_etat = true;
 	            } else
 	            {
 	                icon_star_1.setImageResource(R.drawable.star_inactif);
@@ -519,7 +524,8 @@ public class KaassaMobile extends Activity
 	                icon_star_3.setImageResource(R.drawable.star_inactif);
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
-	                numofstar_text = "0";
+	                numofstar_text = "";
+	                icon_star_3_etat = false;
 	            }
 	            
 		          break;
@@ -535,6 +541,7 @@ public class KaassaMobile extends Activity
 	                icon_star_4.setImageResource(R.drawable.star_actif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
 	                numofstar_text = "4";
+	                icon_star_4_etat = true;
 	            } else
 	            {
 	                icon_star_1.setImageResource(R.drawable.star_inactif);
@@ -542,7 +549,8 @@ public class KaassaMobile extends Activity
 	                icon_star_3.setImageResource(R.drawable.star_inactif);
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
-	                numofstar_text = "0";
+	                numofstar_text = "";
+	                icon_star_4_etat = false;
 	            }
 	            
 		          break;
@@ -557,6 +565,7 @@ public class KaassaMobile extends Activity
 	                icon_star_4.setImageResource(R.drawable.star_actif);
 	                icon_star_5.setImageResource(R.drawable.star_actif);
 	                numofstar_text = "5";
+	                icon_star_5_etat = true;
 	            } else
 	            {
 	                icon_star_1.setImageResource(R.drawable.star_inactif);
@@ -564,7 +573,8 @@ public class KaassaMobile extends Activity
 	                icon_star_3.setImageResource(R.drawable.star_inactif);
 	                icon_star_4.setImageResource(R.drawable.star_inactif);
 	                icon_star_5.setImageResource(R.drawable.star_inactif);
-	                numofstar_text = "0";
+	                numofstar_text = "";
+	                icon_star_5_etat = false;
 	            }
 		          break;
 	      }
