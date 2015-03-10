@@ -13,7 +13,7 @@ android:background="@android:color/white"
     android:orientation="vertical"
 	    >
 	    
-	    <LinearLayout
+	   <LinearLayout
 	    android:id="@+id/line1"
 	    android:background="#FFFFFF" 
 	    android:layout_width="match_parent"
@@ -64,6 +64,19 @@ android:background="@android:color/white"
 	         android:src="@drawable/star_inactif"
 	         /> 
 
+		     <Button
+		        android:id="@+id/displayHotelPhoto"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:fontFamily="Helvetica Neue, Helvetica, Arial, sans-serif"
+				android:textStyle="bold"
+				android:textSize="15sp"
+				android:textColor="@android:color/black"
+				android:text="@string/displayHotelPhoto_value"
+				android:layout_toRightOf="@+id/icon_star_5"
+				
+		        />
+        	    
 	 </LinearLayout>
 
      <TextView android:id="@+id/hotel_detail_pricemin"

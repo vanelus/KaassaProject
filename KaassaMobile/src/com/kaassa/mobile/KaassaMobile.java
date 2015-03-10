@@ -382,11 +382,13 @@ public class KaassaMobile extends Activity
 	
 	public void getFilterValue()
 	{
+		countriesValue.clear();
+		countriesValue.add("");
 		// Go through all the displayed hotels
 		for (int i=0; i < HotelAdapter.getCount() ; i++)
 		{
-			countriesValue.clear();
-			countriesValue.add("");
+
+			String test = HotelAdapter.getItem(i).HotelLocationCountryName_fr;
 			//Get Countries Values
 			if (!(countriesValue.toString().contains(HotelAdapter.getItem(i).HotelLocationCountryName_fr)))
 				countriesValue.add(HotelAdapter.getItem(i).HotelLocationCountryName_fr);

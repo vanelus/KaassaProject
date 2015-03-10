@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -253,7 +255,20 @@ public class HotelDetailActivity extends Activity {
 	    	icon_star_4.setImageResource(R.drawable.star_inactif);
 	    	icon_star_5.setImageResource(R.drawable.star_inactif);
 		}
-				
+		
+		
+		// Start Display image activty
+		//get the "Display Image" Button
+		Button displayHotelPhoto = (Button)findViewById(R.id.displayHotelPhoto);
+		displayHotelPhoto.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getBaseContext(), ImageGridFragment.class));
+			}
+		});
+		
     }
     
     public void onStart(Bundle savedInstanceState)
@@ -266,4 +281,6 @@ public class HotelDetailActivity extends Activity {
 
     	
     }
+    
+
 }
