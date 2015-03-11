@@ -154,7 +154,7 @@ public class KaassaMobile extends Activity
                 // Include dialog.xml file
                 dialog.setContentView(R.layout.dialog_filter);
                 // Set dialog title
-                dialog.setTitle("Filter Form");
+                dialog.setTitle(R.string.filtermenu_title);
  
                 country = (Spinner)dialog.findViewById(R.id.filtermenu_country_spinner);
                 city = (Spinner)dialog.findViewById(R.id.filtermenu_city_spinner);       

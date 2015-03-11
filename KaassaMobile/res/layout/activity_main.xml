@@ -28,34 +28,40 @@
 	    android:layout_below="@+id/fld_pwd"
 	    android:layout_marginTop="15dp"
 	    android:orientation="horizontal">
+	    
 	    <RadioButton android:id="@+id/radio_Hotel"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Hotels"
+	        android:text="@string/MainActivity_radioButton_Hotel"
 	        android:textColor="@android:color/black"
 	        android:textSize="13sp"
 	        android:onClick="onRadioButtonClicked"/>
-	    <RadioButton android:id="@+id/radio_school"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Schools"
-	        android:textColor="@android:color/black"	
-	        android:textSize="13sp"
-	        android:onClick="onRadioButtonClicked"/>
+	    	    
 	    <RadioButton android:id="@+id/radio_enterprise"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Companies"
+	        android:text="@string/MainActivity_radioButton_Company"
 	        android:textSize="13sp"
 	        android:textColor="@android:color/black"
 	        android:onClick="onRadioButtonClicked"/>
+	    
    	    <RadioButton android:id="@+id/radio_executive"
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       android:text="Executives"
+	       android:text="@string/MainActivity_radioButton_Executive"
 	       android:textSize="13sp"
 	       android:textColor="@android:color/black"
 	       android:onClick="onRadioButtonClicked"/>
+   	    
+
+	    <RadioButton android:id="@+id/radio_school"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/MainActivity_radioButton_School"
+	        android:textColor="@android:color/black"	
+	        android:textSize="13sp"
+	        android:onClick="onRadioButtonClicked"/>
+
 	</RadioGroup>
 
      <Button
@@ -63,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
-		android:text="Rechercher"
+		android:text="@string/MainActivity_Button_Search"
         android:layout_marginTop="50dp"
         android:textSize="20sp"
         android:textStyle="bold"

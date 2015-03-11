@@ -19,7 +19,6 @@ android:background="@android:color/white"
 	    android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
-		android:padding="10dp"
 		android:layout_centerHorizontal="true"
 	    >
 	        <TextView android:id="@+id/hotel__detail_name"
@@ -29,7 +28,6 @@ android:background="@android:color/white"
 			android:textStyle="bold"
 			android:textSize="15sp"
 			android:textColor="@android:color/black"
-			
 
 			/>
         	<ImageView
@@ -191,7 +189,7 @@ android:background="@android:color/white"
 			android:textStyle="bold"
 			android:textSize="15sp"
 			android:textColor="@android:color/black"
-			android:text="Services Disponibles:"
+			android:text="@string/HotelDetail_Textview_servicesListTitle"
 			android:layout_below="@+id/line3"
 			 />
 		<ListView

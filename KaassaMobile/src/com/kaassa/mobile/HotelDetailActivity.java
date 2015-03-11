@@ -75,7 +75,7 @@ public class HotelDetailActivity extends Activity {
         TextView hotel_detail_location = (TextView)findViewById(R.id.hotel_detail_location);
         //Define the location of an hotel
         String Location = HotelLocationCityName+" - " +HotelLocationAddress+ "("+ HotelLocationCountryName_fr+")";
-        hotel_detail_location.setText("Location : "+Location);
+        hotel_detail_location.setText(getResources().getText(R.string.HotelDetail_Textview_locationLabel) + Location);
 
         
         TextView hotel_detail_phone = (TextView)findViewById(R.id.hotel_detail_phone);
@@ -124,7 +124,7 @@ public class HotelDetailActivity extends Activity {
         hotel_detail_website.setText(HotelContactWeb_site);
         
       //Define the minprice in dollar of an hotel
-        String minPrice = "From : $ "+HotelBillingPrice_min;
+        String minPrice = getResources().getText(R.string.HotelDetail_Textview_priceminLabel)+"$ "+HotelBillingPrice_min;
         TextView hotel_detail_pricemin = (TextView)findViewById(R.id.hotel_detail_pricemin);
         hotel_detail_pricemin.setText(minPrice);
         

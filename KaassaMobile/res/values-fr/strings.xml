@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Liste d\'Hôtel</string>
+    <string name="HotelDetailActivity_name">Formulaire d\'Hôtel</string>
+    <string name="title_activity_main">Kaassa</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">A Propos</string>
+    <string name="action_leaveusmessage">Laisser Nous Un Message</string>
+    <string name="action_filter">Filtre</string>
+    <string name="MainActivity_radioButton_Hotel">Hôtels</string>
+	<string name="MainActivity_radioButton_Company">Entreprises</string>
+	<string name="MainActivity_radioButton_Executive">Dirigeants</string>
+	<string name="MainActivity_radioButton_School">Ecoles</string>
+	<string name="MainActivity_Button_Search">Rechercher</string>
+	<string name="filtermenu_title">Formulaire de Filtrage</string>
+	<string name="filtermenu_country_textview_value">Pays :</string>
+	<string name="filtermenu_city_textview_value">Ville :</string>
+	<string name="filtermenu_submit_button_value">OK</string>
+	<string name="filtermenu_cancel_button_value">Annuler</string>
+	<string name="AboutKaassa_dialog_title">A Propos - Kaassa</string>
+	<string name="AboutKaassa_dialog_ok">OK</string>
+	<string name="AboutKaassa_dialog_message">Surveillance en Afrique sub-saharienne pour les touristes, les investisseurs et les étudiants. \n\n- hôtels avec photos, les services disponibles et le coût minimum de logement \n\n- entreprises et dirigeants derrière l \'Afrique  croissance économique \n\n- secondaire et des écoles avancées de haute réputation et formations fournis </string>
+	<string name="HotelDetail_Textview_priceminLabel">De :</string>
+	<string name="HotelDetail_Textview_locationLabel">Emplacement :</string>
+	<string name="HotelDetail_Textview_servicesListTitle">Services Disponibles :</string>
+	<string name="displayHotelPhoto_value">Afficher les Photos</string>
+	
+	
+    
+</resources>
